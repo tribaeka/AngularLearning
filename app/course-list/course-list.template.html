@@ -1,16 +1,47 @@
 <div class="row">
+    <div class="col-10">
+        <form class="form-inline my-2 ">
+            <input class="form-control mr-2 w-25" type="search" placeholder="Name, fragment or date" aria-label="Search"
+            ng-model="$ctrl.inputFilterValue">
+            <button class="btn btn-outline-success" type="submit" aria-expanded="false"
+            ng-click="$ctrl.applyFilter()">Search</button>
+        </form>
+    </div>
+    <div class="col-2 d-flex justify-content-end">
+        <form class="form-inline mr-3">
+            <button class="btn btn-primary" type="button"
+                    data-toggle="collapse" data-target="#addCourseFrom" aria-expanded="false" aria-controls="collapseExample">Add course</button>
+        </form>
+    </div>
+    <div class="col-12 collapse" id="addCourseFrom">
+        <form ng-submit="$ctrl.addCourse()">
+            <div class="form-group">
+                <label for="courseTitleInput">Title</label>
+                <input type="text" class="form-control" id="courseTitleInput" placeholder="Enter title"
+                ng-model="$ctrl.courseTitle">
+            </div>
+            <div class="form-group">
+                <label for="courseDescriptionInput">Description</label>
+                <input type="text" class="form-control" id="courseDescriptionInput" placeholder="Enter description"
+                ng-model="$ctrl.courseDescription">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+<div class="row">
     <div class="col-12">
-        <div class="card my-3" ng-repeat="course in $ctrl.courses | limitTo:$ctrl.coursePullSize">
+        <div class="card my-3" ng-repeat="course in $ctrl.courses | limitTo:$ctrl.coursePullSize | filter: $ctrl.filterValue |  orderByUpload: course">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-11">
+                    <div class="col-10">
                         <div class="d-flex justify-content-between">
                             <h4 class="card-title">{{course.title}}</h4>
                             <h4><span class="mx-1">{{course.timeAfterUpdate}}</span><span class="mx-1">{{course.displayDate}}</span></h4>
                         </div>
                         <p class="card-text">{{course.description}}</p>
                     </div>
-                    <div class="col-1">
+                    <div class="col-2">
                         <button type="button" class="btn btn-primary my-1 w-100">
                             <span class="glyphicon glyphicon-edit" aria-hidden="true" title="Edit"><span class="ml-1">Edit</span></span>
                         </button>

@@ -7,12 +7,10 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="ng-cloak.css">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body ng-cloak>
-
   <div class="container">
     <nav class="navbar navbar-light bg-light">
       <a class="navbar-brand" href="#">
@@ -33,64 +31,26 @@
         <li class="breadcrumb-item active" aria-current="page">Home</li>
       </ol>
     </nav>
-    <div class="row">
-      <div class="col-10">
-        <form class="form-inline my-2 ">
-          <input class="form-control mr-2" type="search" placeholder="Name, fragment or date" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-      <div class="col-2 d-flex justify-content-end">
-        <form class="form-inline mr-3">
-          <button class="btn btn-primary" type="submit">Add course</button>
-        </form>
-      </div>
-    </div>
-      <course-list></course-list>
-    <!--
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-11">
-                <div class="d-flex justify-content-between">
-                  <h4 class="card-title">Video Course 1</h4>
-                  <h4><span class="mx-1">In 28min</span><span class="mx-1">22.10.2019</span></h4>
-                </div>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam blanditiis
-                    cum eaque, fugiat hic libero minima nemo nulla, odit officia porro possimus, quo sed suscipit.</p>
-              </div>
-              <div class="col-1">
-                <button type="button" class="btn btn-primary my-1 w-100">
-                  <span class="glyphicon glyphicon-edit" aria-hidden="true" title="Edit"><span class="ml-1">Edit</span></span>
-                </button>
-                <button type="button" class="btn btn-danger my-1 w-100">
-                  <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete"><span class="ml-1">Delete</span></span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    -->
+    <course-list></course-list>
     <blockquote class="blockquote text-right mt-3 border">
       <p class="mb-0 pt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
       <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
     </blockquote>
   </div>
 
-<script src="lib/angular/angular.min.js"></script>
-<script src="app.js"></script>
-<script src="core/core.module.js"></script>
-<script src="core/course/course.module.js"></script>
-<script src="core/course/course.service.js"></script>
-<script src="course-bar/course-bar.module.js"></script>
-<script src="course-bar/course-bar.component.js"></script>
-<script src="course-bar/course-bar.controller.js"></script>
-<script src="course-list/course-list.module.js"></script>
-<script src="course-list/courses-list.controller.js"></script>
-<script src="course-list/course-list.component.js"></script>
+
+
+  <script src="lib/jquery/jquery-3.4.1.slim.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="core/core.module.js"></script>
+  <script src="core/course/course.module.js"></script>
+  <script src="core/course/course.service.js"></script>
+  <script src="core/order-by-upload/order-by-upload.module.js"></script>
+  <script src="core/order-by-upload/order-by-upload.filter.js"></script>
+  <script src="course-list/course-list.module.js"></script>
+  <script src="course-list/courses-list.controller.js"></script>
+  <script src="course-list/course-list.component.js"></script>
 </body>
 </html>
