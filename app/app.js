@@ -3,6 +3,8 @@
 
     angular.module('app', [
         'core',
+        'navBar',
+        'footerComp',
         'courseList'
     ])
 })();

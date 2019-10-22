@@ -1,6 +1,6 @@
 (function () {
     'use strict';
 
-    angular.module('core', ['course', 'uploadFilter']);
+    angular.module('core', ['course']);
 
 })();

@@ -1,5 +1,5 @@
 (function () {
     'use strict';
 
-    angular.module('courseList', ['course', 'uploadFilter']);
+    angular.module('courseList', ['course']);
 })();
