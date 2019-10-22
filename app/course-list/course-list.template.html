@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card my-3" ng-repeat="course in $ctrl.courses | limitTo:$ctrl.coursePullSize">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-11">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title">{{course.title}}</h4>
+                            <h4><span class="mx-1">{{course.timeAfterUpdate}}</span><span class="mx-1">{{course.displayDate}}</span></h4>
+                        </div>
+                        <p class="card-text">{{course.description}}</p>
+                    </div>
+                    <div class="col-1">
+                        <button type="button" class="btn btn-primary my-1 w-100">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true" title="Edit"><span class="ml-1">Edit</span></span>
+                        </button>
+                        <button type="button" class="btn btn-danger my-1 w-100">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete"><span class="ml-1">Delete</span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-secondary btn-lg btn-block my-3"
+        ng-click="$ctrl.increase()">Load more</button>
+    </div>
+</div>
