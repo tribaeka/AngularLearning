@@ -1,0 +1,216 @@
+$mainColor: #f7f7f7;
+$secondaryColor: #cccccc;
+$primaryColor: #0275d8;
+$infoColor: #5bc0de;
+
+.container{
+  background: $mainColor;
+  position: absolute;
+  width: 70%;
+  left: 15%;
+  margin: 0;
+  padding: 0;
+  border: 0.1rem solid $secondaryColor;
+  border-radius: 0.4rem;
+  font-family: 'Roboto', sans-serif;
+  div, header, footer{
+    border-radius: 0.25rem;
+
+  }
+}
+
+.nav-list {
+  list-style-type: none;
+  padding: 1rem;
+  margin: 0;
+  li {
+    display: inline;
+    a {
+      text-decoration: none;
+      color: inherit;
+      margin: 0 0.75rem;
+    }
+  }
+}
+
+header {
+  background: $primaryColor;
+  color: white;
+  .logo-item {
+    a {
+      font-size: 1.5rem;
+    }
+
+    img {
+      vertical-align: middle;
+      margin-right: 0.25rem;
+    }
+  }
+}
+
+.breadcrumbs {
+  font-size: 1.1rem;
+  color: black;
+}
+
+.course-control-bar {
+  background: $infoColor;
+  padding: 1rem 0.75rem;
+  input {
+    padding: 0.25rem;
+    margin: 0 0.75rem;
+  }
+}
+.btn {
+  padding: 0.5rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.btn-logoff {
+  background: $primaryColor;
+  color: white;
+  border: 0.1rem solid white;
+  border-radius: 0.4rem;
+}
+
+.btn-logoff:hover {
+  background: white;
+  color: $primaryColor;
+  border: 0.1rem solid $primaryColor;
+  border-radius: 0.4rem;
+}
+
+.btn-info {
+  background: #5bc0de;
+  color: white;
+  border: 0.1rem solid white;
+  border-radius: 0.4rem;
+}
+
+.btn-info:hover {
+  background: white;
+  color: $infoColor;
+  border: 0.1rem solid $infoColor;
+  border-radius: 0.4rem;
+}
+
+#btn-add-pos{
+  margin-right: 2rem;
+}
+
+.btn-add-edit {
+  background: $primaryColor;
+  color: white;
+  border: 0.1rem solid white;
+  border-radius: 0.3rem;
+}
+
+#btn-logoff-pos {
+  margin-right: 2.8rem;
+
+};
+
+.btn-edit {
+  background: $primaryColor;
+  color: white;
+  border: 0.1rem solid white;
+  border-radius: 0.3rem;
+  padding: 0.75rem 0;
+}
+
+.btn-delete {
+  background: #d9534f;
+  color: white;
+  border: 0.1rem solid white;
+  border-radius: 0.3rem;
+  padding: 0.75rem 0;
+}
+
+.btn-secondary {
+  background: $secondaryColor;
+  color: black;
+  border: 0.1rem solid $secondaryColor;
+  border-radius: 0.3rem;
+  padding: 0.75rem 0;
+  display: block;
+  margin: 1rem;
+  width: 97.5%;
+  font-weight: 500;
+}
+.flex-justify-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.course-container {
+  .info {
+    width: 85%;
+    display: inline-block;
+
+  }
+
+  .action-bar {
+    width: 10%;
+    display: inline-block;
+  }
+
+  .course-list {
+    list-style-type: none;
+    border: 0.2rem solid $secondaryColor;
+    margin: 1rem;
+    border-radius: 0.25rem;
+  }
+
+  .action-bar {
+    margin: 0.5rem;
+
+    button{
+      width: 80%;
+      margin: 0.2rem 0 0.2rem 2.5rem;
+    }
+  }
+
+  .course-date {
+    display: block;
+    margin-right: 1.5rem;
+  }
+}
+
+footer{
+  text-align: right;
+  margin: 1rem;
+}
+
+.form-wrapper {
+
+  h4 {
+    margin-left: 2rem;
+  }
+
+  form {
+    background: white;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    border: 0.1rem solid $secondaryColor;
+  }
+  input {
+    width: 100%;
+    margin: 0.5rem 0 ;
+    padding: 0.25rem;
+    height: 1.5rem;
+    border: 0.2rem solid $secondaryColor ;
+    border-radius: 0.25rem;
+  }
+  label {
+    padding-left: 0.25rem;
+  }
+  input, label {
+    font-size: 1rem;
+  }
+}

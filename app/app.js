@@ -4,7 +4,9 @@
     angular.module('app', [
         'core',
         'navBar',
-        'footerComp',
-        'courseList'
-    ])
+        'courseControl',
+        'forms',
+        'courseList',
+        'footerComp'
+    ]);
 })();

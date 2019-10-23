@@ -1,0 +1,197 @@
+.container {
+  background: #f7f7f7;
+  position: absolute;
+  width: 70%;
+  left: 15%;
+  margin: 0;
+  padding: 0;
+  border: 0.1rem solid #cccccc;
+  border-radius: 0.4rem;
+  font-family: "Roboto", sans-serif;
+}
+.container div, .container header, .container footer {
+  border-radius: 0.25rem;
+}
+
+.nav-list {
+  list-style-type: none;
+  padding: 1rem;
+  margin: 0;
+}
+.nav-list li {
+  display: inline;
+}
+.nav-list li a {
+  text-decoration: none;
+  color: inherit;
+  margin: 0 0.75rem;
+}
+
+header {
+  background: #0275d8;
+  color: white;
+}
+header .logo-item a {
+  font-size: 1.5rem;
+}
+header .logo-item img {
+  vertical-align: middle;
+  margin-right: 0.25rem;
+}
+
+.breadcrumbs {
+  font-size: 1.1rem;
+  color: black;
+}
+
+.course-control-bar {
+  background: #5bc0de;
+  padding: 1rem 0.75rem;
+}
+.course-control-bar input {
+  padding: 0.25rem;
+  margin: 0 0.75rem;
+}
+
+.btn {
+  padding: 0.5rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.btn-logoff {
+  background: #0275d8;
+  color: white;
+  border: 0.1rem solid white;
+  border-radius: 0.4rem;
+}
+
+.btn-logoff:hover {
+  background: white;
+  color: #0275d8;
+  border: 0.1rem solid #0275d8;
+  border-radius: 0.4rem;
+}
+
+.btn-info {
+  background: #5bc0de;
+  color: white;
+  border: 0.1rem solid white;
+  border-radius: 0.4rem;
+}
+
+.btn-info:hover {
+  background: white;
+  color: #5bc0de;
+  border: 0.1rem solid #5bc0de;
+  border-radius: 0.4rem;
+}
+
+#btn-add-pos {
+  margin-right: 2rem;
+}
+
+.btn-add-edit {
+  background: #0275d8;
+  color: white;
+  border: 0.1rem solid white;
+  border-radius: 0.3rem;
+}
+
+#btn-logoff-pos {
+  margin-right: 2.8rem;
+}
+
+.btn-edit {
+  background: #0275d8;
+  color: white;
+  border: 0.1rem solid white;
+  border-radius: 0.3rem;
+  padding: 0.75rem 0;
+}
+
+.btn-delete {
+  background: #d9534f;
+  color: white;
+  border: 0.1rem solid white;
+  border-radius: 0.3rem;
+  padding: 0.75rem 0;
+}
+
+.btn-secondary {
+  background: #cccccc;
+  color: black;
+  border: 0.1rem solid #cccccc;
+  border-radius: 0.3rem;
+  padding: 0.75rem 0;
+  display: block;
+  margin: 1rem;
+  width: 97.5%;
+  font-weight: 500;
+}
+
+.flex-justify-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.course-container .info {
+  width: 85%;
+  display: inline-block;
+}
+.course-container .action-bar {
+  width: 10%;
+  display: inline-block;
+}
+.course-container .course-list {
+  list-style-type: none;
+  border: 0.2rem solid #cccccc;
+  margin: 1rem;
+  border-radius: 0.25rem;
+}
+.course-container .action-bar {
+  margin: 0.5rem;
+}
+.course-container .action-bar button {
+  width: 80%;
+  margin: 0.2rem 0 0.2rem 2.5rem;
+}
+.course-container .course-date {
+  display: block;
+  margin-right: 1.5rem;
+}
+
+footer {
+  text-align: right;
+  margin: 1rem;
+}
+
+.form-wrapper h4 {
+  margin-left: 2rem;
+}
+.form-wrapper form {
+  background: white;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  border: 0.1rem solid #cccccc;
+}
+.form-wrapper input {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.25rem;
+  height: 1.5rem;
+  border: 0.2rem solid #cccccc;
+  border-radius: 0.25rem;
+}
+.form-wrapper label {
+  padding-left: 0.25rem;
+}
+.form-wrapper input, .form-wrapper label {
+  font-size: 1rem;
+}
+
+/*# sourceMappingURL=app.css.map */
