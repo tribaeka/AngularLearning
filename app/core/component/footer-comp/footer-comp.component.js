@@ -4,6 +4,6 @@
     angular
         .module('footerComp')
         .component('footerComp', {
-            templateUrl: 'footer-comp/footer-comp.template.html'
+            templateUrl: 'core/component/footer-comp/footer-comp.template.html'
         });
 })();

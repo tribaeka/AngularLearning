@@ -4,7 +4,7 @@
     angular
         .module('courseControl')
         .component('courseControl', {
-            templateUrl: 'course-control/course-control.template.html',
+            templateUrl: 'core/component/course-control/course-control.template.html',
             controller: 'CourseControlController'
         });
 })();

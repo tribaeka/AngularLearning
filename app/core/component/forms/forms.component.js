@@ -4,7 +4,7 @@
     angular
         .module('forms')
         .component('forms', {
-            templateUrl: 'forms/forms.template.html',
+            templateUrl: 'core/component/forms/forms.template.html',
             controller: 'formsController'
         });
 })();

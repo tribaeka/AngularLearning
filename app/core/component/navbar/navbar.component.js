@@ -4,6 +4,6 @@
     angular
         .module('navBar')
         .component('navBar', {
-            templateUrl: 'navbar/navbar.template.html'
+            templateUrl: 'core/component/navbar/navbar.template.html'
         });
 })();
