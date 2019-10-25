@@ -12,32 +12,32 @@
 </head>
 <body ng-cloak>
 
-    <div class="container">
-      <nav-bar></nav-bar>
-      <course-control></course-control>
-      <forms></forms>
-      <course-list></course-list>
-      <footer-comp></footer-comp>
-    </div>
-
-
+  <app-header></app-header>
+  <breadcrumbs></breadcrumbs>
+  <course-content></course-content>
+  <footer-comp></footer-comp>
 
   <script src="lib/angular/angular.min.js"></script>
   <script src="app.js"></script>
   <script src="core/core.module.js"></script>
   <script src="core/service/course/course.module.js"></script>
   <script src="core/service/course/course.service.js"></script>
+  <script src="core/component/app-header/app-header.module.js"></script>
+  <script src="core/component/app-header/app-header.component.js"></script>
+  <script src="core/component/breadcrumbs/breadcrumbs.module.js"></script>
+  <script src="core/component/breadcrumbs/breadcrumbs.component.js"></script>
+  <script src="core/component/course-content/course-content.module.js"></script>
+  <script src="core/component/course-content/course-content.component.js"></script>
+  <script src="core/component/course-content/course-content.controller.js"></script>
   <script src="core/component/course-control/course-control.module.js"></script>
   <script src="core/component/course-control/course-control.component.js"></script>
   <script src="core/component/course-control/course-control.controller.js"></script>
-  <script src="core/component/forms/forms.module.js"></script>
-  <script src="core/component/forms/forms.component.js"></script>
-  <script src="core/component/forms/forms.controller.js"></script>
   <script src="core/component/course-list/course-list.module.js"></script>
   <script src="core/component/course-list/courses-list.controller.js"></script>
   <script src="core/component/course-list/course-list.component.js"></script>
-  <script src="core/component/navbar/navbar.module.js"></script>
-  <script src="core/component/navbar/navbar.component.js"></script>
+  <script src="core/component/forms/forms.module.js"></script>
+  <script src="core/component/forms/forms.component.js"></script>
+  <script src="core/component/forms/forms.controller.js"></script>
   <script src="core/component/footer-comp/footer-comp.module.js"></script>
   <script src="core/component/footer-comp/footer-comp.component.js"></script>
 </body>

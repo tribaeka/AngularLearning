@@ -1,6 +1,7 @@
 <div class="course-container">
-    <ul class="course-list" ng-repeat="course in $ctrl.courses | limitTo:$ctrl.coursePullSize |
+    <ul class="course-list" ng-repeat="course in $scope.courses | limitTo:$ctrl.coursePullSize |
     filter: $ctrl.filterValue | orderBy: '-uploadTime'">
+        {{test}}
         <li>
             <div class="info">
                 <h3 class="flex-justify-between">

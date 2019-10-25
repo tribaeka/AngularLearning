@@ -3,7 +3,9 @@
 
     angular.module('app', [
         'core',
-        'navBar',
+        'appHeader',
+        'breadcrumbs',
+        'courseContent',
         'courseControl',
         'forms',
         'courseList',

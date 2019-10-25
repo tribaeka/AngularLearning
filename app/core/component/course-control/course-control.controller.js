@@ -4,7 +4,7 @@
     angular
         .module('courseControl')
         .controller('CourseControlController', function($rootScope) {
-            let $ctrl = this;
+            var $ctrl = this;
             $ctrl.showFromForAdd = false;
             $ctrl.applyFilter = function () {
                 $rootScope.$broadcast('applyFilter', $ctrl.inputFilterValue);

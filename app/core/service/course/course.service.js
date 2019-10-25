@@ -9,8 +9,8 @@
             }
 
             function addDisplayDateAndTimeAfterUpdating(course) {
-                let currentDate = new Date();
-                let uploadDate = new Date(course.uploadDate);
+                var currentDate = new Date();
+                var uploadDate = new Date(course.uploadDate);
                 course.displayDate = dateToDisplayDate(uploadDate);
                 if (dateToDisplayDate(currentDate) === course.displayDate){
                     if (currentDate.getMinutes() === uploadDate.getMinutes()){

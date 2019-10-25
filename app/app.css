@@ -1,15 +1,12 @@
-.container {
+body {
   background: #f7f7f7;
-  position: absolute;
-  width: 70%;
-  left: 15%;
   margin: 0;
   padding: 0;
   border: 0.1rem solid #cccccc;
   border-radius: 0.4rem;
   font-family: "Roboto", sans-serif;
 }
-.container div, .container header, .container footer {
+body div, body .header, body .footer {
   border-radius: 0.25rem;
 }
 
@@ -27,14 +24,14 @@
   margin: 0 0.75rem;
 }
 
-header {
+.header {
   background: #0275d8;
   color: white;
 }
-header .logo-item a {
+.header .logo-item a {
   font-size: 1.5rem;
 }
-header .logo-item img {
+.header .logo-item img {
   vertical-align: middle;
   margin-right: 0.25rem;
 }
@@ -128,7 +125,7 @@ header .logo-item img {
   border-radius: 0.3rem;
   padding: 0.75rem 0;
   display: block;
-  margin: 1rem;
+  margin: 1rem 1rem 3.5rem 1rem;
   width: 97.5%;
   font-weight: 500;
 }
@@ -164,9 +161,16 @@ header .logo-item img {
   margin-right: 1.5rem;
 }
 
-footer {
+.footer {
+  background: #0275d8;
   text-align: right;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 97%;
+  height: 3.5rem;
   margin: 1rem;
+  padding-right: 2rem;
 }
 
 .form-wrapper h4 {

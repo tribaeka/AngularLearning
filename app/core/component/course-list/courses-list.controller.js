@@ -3,17 +3,10 @@
 
     angular
         .module('courseList')
-        .controller('CourseListController', function($rootScope,  courseService) {
+        .controller('CourseListController', function($rootScope, $scope,  courseService) {
+            var $ctrl = this;
 
-            let $ctrl = this;
-
-            courseService.loadCourses().then(
-                function(courses) {
-                    $ctrl.courses = courses.data;
-                    angular.forEach($ctrl.courses, course => {
-                        courseService.addDisplayDateAndTimeAfterUpdating(course);
-                    });
-                });
+            console.log($scope.test);
 
             $ctrl.coursePullSize = 4;
 

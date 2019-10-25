@@ -2,18 +2,19 @@ $mainColor: #f7f7f7;
 $secondaryColor: #cccccc;
 $primaryColor: #0275d8;
 $infoColor: #5bc0de;
+$footerHeight: 3.5rem;
 
-.container{
+@mixin loadMoreBtnScaling ($margin) {
+  margin: $margin $margin $footerHeight $margin;
+}
+body{
   background: $mainColor;
-  position: absolute;
-  width: 70%;
-  left: 15%;
   margin: 0;
   padding: 0;
   border: 0.1rem solid $secondaryColor;
   border-radius: 0.4rem;
   font-family: 'Roboto', sans-serif;
-  div, header, footer{
+  div, .header, .footer{
     border-radius: 0.25rem;
 
   }
@@ -33,7 +34,7 @@ $infoColor: #5bc0de;
   }
 }
 
-header {
+.header {
   background: $primaryColor;
   color: white;
   .logo-item {
@@ -138,7 +139,7 @@ header {
   border-radius: 0.3rem;
   padding: 0.75rem 0;
   display: block;
-  margin: 1rem;
+  @include loadMoreBtnScaling(1rem);
   width: 97.5%;
   font-weight: 500;
 }
@@ -181,9 +182,16 @@ header {
   }
 }
 
-footer{
+.footer{
+  background: $primaryColor;
   text-align: right;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 97%;
+  height: $footerHeight;
   margin: 1rem;
+  padding-right: 2rem;
 }
 
 .form-wrapper {
