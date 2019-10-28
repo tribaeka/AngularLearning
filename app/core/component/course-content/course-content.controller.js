@@ -1,26 +1,13 @@
-(function () {
-    "use strict";
-
-    angular
-        .module('courseContent')
-        .controller('CourseContentController', function($scope, courseService) {
-            var $ctrl = this;
-            $scope.test = 'hello';
-            var courses;
-            courseService.loadCourses().then(
-                function(response) {
-                    courses = response.data;
-                    angular.forEach(courses, course => {
-                        courseService.addDisplayDateAndTimeAfterUpdating(course);
-                    });
-
-                }).then(function () {
-                setTimeout(function () {
-                    $scope.courses = courses;
-                },0);
+'use strict';
+angular
+    .module('courseContent')
+    .controller('CourseContentController', function($rootScope, $scope, courseService) {
+        var courses;
+        courseService.loadCourses().then(function(response) {
+            courses = response.data;
+            angular.forEach(courses, function(course) {
+                courseService.addDisplayDateAndTimeAfterUpdating(course);
             });
-
-            console.log($scope.courses);
-
+            $rootScope.$broadcast('coursesWasLoaded', courses);
         });
-})();
+    });

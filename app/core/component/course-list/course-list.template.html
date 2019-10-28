@@ -1,5 +1,5 @@
 <div class="course-container">
-    <ul class="course-list" ng-repeat="course in $scope.courses | limitTo:$ctrl.coursePullSize |
+    <ul class="course-list" ng-repeat="course in $ctrl.courses | limitTo:$ctrl.coursePullSize |
     filter: $ctrl.filterValue | orderBy: '-uploadTime'">
         {{test}}
         <li>
@@ -11,11 +11,11 @@
                 <p>{{course.description}}</p>
             </div>
             <div class="action-bar">
-                <button type="button" class="btn btn-edit"
+                <button type="button" class="btn btn-edit action-btn"
                         ng-click="$ctrl.pushCourseToEditForm(course)">
                     <span>Edit</span>
                 </button>
-                <button type="button" class="btn btn-delete" ng-click="$ctrl.deleteCourse(course)">
+                <button type="button" class="btn btn-delete action-btn" ng-click="$ctrl.deleteCourse(course)">
                     <span>Delete</span>
                 </button>
             </div>

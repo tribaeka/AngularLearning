@@ -1,5 +1,3 @@
-(function () {
-    'use strict';
+'use strict';
 
-    angular.module('courseContent', ['course']);
-})();
+angular.module('courseContent', ['course']);

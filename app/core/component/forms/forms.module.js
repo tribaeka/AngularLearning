@@ -1,5 +1,3 @@
-(function () {
-    'use strict';
+'use strict';
 
-    angular.module('forms', []);
-})();
+angular.module('forms', []);

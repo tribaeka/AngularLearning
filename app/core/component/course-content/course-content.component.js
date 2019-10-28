@@ -1,10 +1,10 @@
-(function () {
-    'use strict';
+'use strict';
 
-    angular
-        .module('courseContent')
-        .component('courseContent', {
-            templateUrl: 'core/component/course-content/course-content.template.html',
-            controller: 'CourseContentController'
-        });
-})();
+angular
+    .module('courseContent')
+    .component('courseContent', {
+        template: '<course-control></course-control>' +
+            '<forms></forms>' +
+            '<course-list></course-list>',
+        controller: 'CourseContentController'
+    });

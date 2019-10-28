@@ -1,20 +1,39 @@
-$mainColor: #f7f7f7;
-$secondaryColor: #cccccc;
-$primaryColor: #0275d8;
-$infoColor: #5bc0de;
+$whiteColor: #f7f7f7;
+$grayLightColor: #cccccc;
+$blueColor: #0275d8;
+$lightBlueColor: #5bc0de;
 $footerHeight: 3.5rem;
 
 @mixin loadMoreBtnScaling ($margin) {
-  margin: $margin $margin $footerHeight $margin;
+  margin: $margin $margin ($footerHeight + $margin) $margin;
 }
-body{
+
+@mixin basicButton {
+  padding: 0.5rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+@mixin coloredButton($mainColor, $secondaryColor){
   background: $mainColor;
-  margin: 0;
-  padding: 0;
+  color: $secondaryColor;
   border: 0.1rem solid $secondaryColor;
   border-radius: 0.4rem;
+}
+
+body {
+  background: $whiteColor;
+  margin: 0;
+  padding: 0;
+  border: 0.1rem solid $grayLightColor;
+  border-radius: 0.4rem;
   font-family: 'Roboto', sans-serif;
-  div, .header, .footer{
+
+  .course-control-bar, .course-container,
+  .header, .footer{
     border-radius: 0.25rem;
 
   }
@@ -24,9 +43,11 @@ body{
   list-style-type: none;
   padding: 1rem;
   margin: 0;
-  li {
+
+  .nav-item {
     display: inline;
-    a {
+
+    .nav-item-elem {
       text-decoration: none;
       color: inherit;
       margin: 0 0.75rem;
@@ -35,16 +56,20 @@ body{
 }
 
 .header {
-  background: $primaryColor;
+  background: $blueColor;
   color: white;
+
   .logo-item {
-    a {
+
+    .logo-title {
       font-size: 1.5rem;
     }
 
-    img {
+    .logo-image {
       vertical-align: middle;
       margin-right: 0.25rem;
+      width: 2.5rem;
+      height: 2.5rem;
     }
   }
 }
@@ -55,87 +80,66 @@ body{
 }
 
 .course-control-bar {
-  background: $infoColor;
+  background: $lightBlueColor;
   padding: 1rem 0.75rem;
-  input {
+
+  .inp-search {
     padding: 0.25rem;
     margin: 0 0.75rem;
   }
 }
-.btn {
-  padding: 0.5rem 1.5rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1rem;
-  font-family: 'Roboto', sans-serif;
-
-}
 
 .btn-logoff {
-  background: $primaryColor;
-  color: white;
-  border: 0.1rem solid white;
-  border-radius: 0.4rem;
+  @include basicButton;
+  @include coloredButton($blueColor, white);
 }
 
 .btn-logoff:hover {
-  background: white;
-  color: $primaryColor;
-  border: 0.1rem solid $primaryColor;
-  border-radius: 0.4rem;
+  @include basicButton;
+  @include coloredButton(white, $blueColor);
 }
 
 .btn-info {
-  background: #5bc0de;
-  color: white;
-  border: 0.1rem solid white;
-  border-radius: 0.4rem;
+  @include basicButton;
+  @include coloredButton($lightBlueColor, white);
 }
 
 .btn-info:hover {
-  background: white;
-  color: $infoColor;
-  border: 0.1rem solid $infoColor;
-  border-radius: 0.4rem;
+  @include basicButton;
+  @include coloredButton(white, $lightBlueColor);
+
 }
 
-#btn-add-pos{
-  margin-right: 2rem;
+#btn-add-pos {
+  margin-right: 5.5rem;
 }
 
 .btn-add-edit {
-  background: $primaryColor;
-  color: white;
-  border: 0.1rem solid white;
-  border-radius: 0.3rem;
+  @include basicButton;
+  @include coloredButton($blueColor, white);
 }
 
 #btn-logoff-pos {
-  margin-right: 2.8rem;
-
+  margin-right: 6rem;
 };
 
 .btn-edit {
-  background: $primaryColor;
-  color: white;
-  border: 0.1rem solid white;
-  border-radius: 0.3rem;
+  @include basicButton;
+  @include coloredButton($blueColor, white);
   padding: 0.75rem 0;
 }
 
 .btn-delete {
-  background: #d9534f;
-  color: white;
-  border: 0.1rem solid white;
-  border-radius: 0.3rem;
+  @include basicButton;
+  @include coloredButton(#d9534f, white);
   padding: 0.75rem 0;
 }
 
 .btn-secondary {
-  background: $secondaryColor;
+  @include basicButton;
+  background: $grayLightColor;
   color: black;
-  border: 0.1rem solid $secondaryColor;
+  border: 0.1rem solid $grayLightColor;
   border-radius: 0.3rem;
   padding: 0.75rem 0;
   display: block;
@@ -162,7 +166,7 @@ body{
 
   .course-list {
     list-style-type: none;
-    border: 0.2rem solid $secondaryColor;
+    border: 0.2rem solid $grayLightColor;
     margin: 1rem;
     border-radius: 0.25rem;
   }
@@ -170,7 +174,7 @@ body{
   .action-bar {
     margin: 0.5rem;
 
-    button{
+    .action-btn {
       width: 80%;
       margin: 0.2rem 0 0.2rem 2.5rem;
     }
@@ -182,43 +186,47 @@ body{
   }
 }
 
-.footer{
-  background: $primaryColor;
+.footer {
+  background: $blueColor;
   text-align: right;
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 97%;
+  width: 100%;
   height: $footerHeight;
-  margin: 1rem;
-  padding-right: 2rem;
+
+  .footer-description {
+    padding-right: 1rem;
+  }
 }
 
 .form-wrapper {
-
-  h4 {
+  .form-title {
     margin-left: 2rem;
   }
 
-  form {
+  .courses-form {
     background: white;
     margin: 1rem;
     padding: 1rem;
     border-radius: 0.25rem;
-    border: 0.1rem solid $secondaryColor;
-  }
-  input {
-    width: 100%;
-    margin: 0.5rem 0 ;
-    padding: 0.25rem;
-    height: 1.5rem;
-    border: 0.2rem solid $secondaryColor ;
-    border-radius: 0.25rem;
-  }
-  label {
-    padding-left: 0.25rem;
-  }
-  input, label {
-    font-size: 1rem;
+    border: 0.1rem solid $grayLightColor;
+
+    .course-form-input {
+      width: 100%;
+      margin: 0.5rem 0 ;
+      padding: 0.25rem;
+      height: 1.5rem;
+      border: 0.2rem solid $grayLightColor;
+      border-radius: 0.25rem;
+    }
+
+    .course-from-label {
+      padding-left: 0.25rem;
+    }
+
+    .course-form-input, .course-from-label {
+      font-size: 1rem;
+    }
   }
 }
