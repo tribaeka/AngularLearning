@@ -26,19 +26,20 @@ $footerHeight: 3.5rem;
 
 body {
   background: $whiteColor;
+  height: 100%;
   margin: 0;
   padding: 0;
   border: 0.1rem solid $grayLightColor;
   border-radius: 0.4rem;
   font-family: 'Roboto', sans-serif;
-
   .course-control-bar, .course-container,
   .header, .footer{
     border-radius: 0.25rem;
-
   }
 }
-
+.container {
+  min-height: calc(100vh - 75px);
+}
 .nav-list {
   list-style-type: none;
   padding: 1rem;
@@ -111,17 +112,13 @@ body {
 }
 
 #btn-add-pos {
-  margin-right: 5.5rem;
+  margin-right: 7rem;
 }
 
 .btn-add-edit {
   @include basicButton;
   @include coloredButton($blueColor, white);
 }
-
-#btn-logoff-pos {
-  margin-right: 6rem;
-};
 
 .btn-edit {
   @include basicButton;
@@ -143,7 +140,7 @@ body {
   border-radius: 0.3rem;
   padding: 0.75rem 0;
   display: block;
-  @include loadMoreBtnScaling(1rem);
+  margin: 1rem;
   width: 97.5%;
   font-weight: 500;
 }
@@ -189,13 +186,11 @@ body {
 .footer {
   background: $blueColor;
   text-align: right;
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
   height: $footerHeight;
 
   .footer-description {
+    padding-top: 1rem;
     padding-right: 1rem;
   }
 }

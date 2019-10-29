@@ -1,9 +1,8 @@
-(function () {
-    'use strict';
+'use strict';
 
-    angular
-        .module('appHeader')
-        .component('appHeader', {
-            templateUrl: 'core/component/app-header/app-header.template.html'
-        });
-})();
+angular
+    .module('appHeader')
+    .component('appHeader', {
+        templateUrl: 'core/component/app-header/app-header.template.html',
+        controller: 'AppHeaderController'
+    });

@@ -4,7 +4,6 @@ angular
     .module('courseList')
     .controller('CourseListController', function($rootScope, $scope, courseService) {
         var $ctrl = this;
-        //var courses;
         $rootScope.$on('coursesWasLoaded', function(event, data) {
             $ctrl.courses = data;
         });

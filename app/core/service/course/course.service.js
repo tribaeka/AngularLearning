@@ -7,21 +7,10 @@ angular
             return $http.get('data/courses.json');
         }
 
-        function addDisplayDateAndTimeAfterUpdating(course) {
-            var currentDate = new Date();
+        function addDisplayDateAndDuration(course) {
             var uploadDate = new Date(course.uploadDate);
             course.displayDate = dateToDisplayDate(uploadDate);
-            if (dateToDisplayDate(currentDate) === course.displayDate) {
-                if (currentDate.getMinutes() === uploadDate.getMinutes()) {
-                    course.timeAfterUpdate = 'Less than a minute ago';
-                } else if (currentDate.getHours() === uploadDate.getHours()) {
-                    course.timeAfterUpdate = 'In ' + (currentDate.getMinutes() - uploadDate.getMinutes()) + 'min';
-                } else {
-                    course.timeAfterUpdate = 'In ' + (currentDate.getHours() - uploadDate.getHours()) + 'hrs';
-                }
-            } else {
-                course.timeAfterUpdate = 'More than a day ago';
-            }
+            course.displayDuration = toDisplayDuration(course.duration);
             course.uploadDate = uploadDate;
             course.uploadTime = uploadDate.getTime();
         }
@@ -32,8 +21,12 @@ angular
                 date.getFullYear();
         }
 
+        function toDisplayDuration(duration) {
+            return duration > 59 ? Math.round(duration / 60) + 'h ' + duration % 60 + 'min' : duration + 'min';
+        }
+
         return {
             loadCourses: loadCourses,
-            addDisplayDateAndTimeAfterUpdating: addDisplayDateAndTimeAfterUpdating
+            addDisplayDateAndTimeAfterUpdating: addDisplayDateAndDuration
         };
     } ]);

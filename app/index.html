@@ -12,9 +12,11 @@
 </head>
 <body ng-cloak>
 
-  <app-header></app-header>
-  <breadcrumbs></breadcrumbs>
-  <course-content></course-content>
+  <div class="container">
+    <app-header></app-header>
+    <breadcrumbs></breadcrumbs>
+    <course-content></course-content>
+  </div>
   <footer-comp></footer-comp>
 
   <script src="lib/angular/angular.min.js"></script>
@@ -23,8 +25,11 @@
   <script src="core/core.module.js"></script>
   <script src="core/service/course/course.module.js"></script>
   <script src="core/service/course/course.service.js"></script>
+  <script src="core/service/user/user.module.js"></script>
+  <script src="core/service/user/user.service.js"></script>
   <script src="core/component/app-header/app-header.module.js"></script>
   <script src="core/component/app-header/app-header.component.js"></script>
+  <script src="core/component/app-header/app-header.controller.js"></script>
   <script src="core/component/breadcrumbs/breadcrumbs.module.js"></script>
   <script src="core/component/breadcrumbs/breadcrumbs.component.js"></script>
   <script src="core/component/course-content/course-content.module.js"></script>

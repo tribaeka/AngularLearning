@@ -1,5 +1,3 @@
-(function () {
-    'use strict';
+'use strict';
 
-    angular.module('appHeader', []);
-})();
+angular.module('appHeader', ['user']);
