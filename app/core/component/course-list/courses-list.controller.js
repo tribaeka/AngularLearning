@@ -18,7 +18,7 @@ angular
         });
         $ctrl.coursePullSize = 4;
 
-        $ctrl.increase = function() {
+        $ctrl.onLoadMoreClick = function() {
             console.log('load more button');
             $ctrl.coursePullSize += 4;
         };
