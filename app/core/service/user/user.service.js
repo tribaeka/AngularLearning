@@ -5,7 +5,11 @@ angular
     .factory('userService', [ '$http', function($http) {
 
         function loadUser() {
-            return $http.get('data/user.json');
+            return $http
+                .get('data/user.json')
+                .then(function(userData) {
+                    return userData.data;
+                });
         }
 
         function getFullName(user) {

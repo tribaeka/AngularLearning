@@ -18,7 +18,7 @@ angular
         };
 
         userService.loadUser().then(function(userData) {
-            $ctrl.user = userData.data;
+            $ctrl.user = userData;
         });
 
         $ctrl.getFullName = userService.getFullName;
