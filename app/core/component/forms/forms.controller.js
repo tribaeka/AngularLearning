@@ -3,26 +3,29 @@
 angular
     .module('forms')
     .controller('formsController', function($rootScope) {
-        let $ctrl = this;
-
-        $rootScope.$on('toggleFromForAdd', function (event, data) {
+        var $ctrl = this;
+        var toggleFromForAddEvent = 'toggleFromForAdd';
+        var addCourseEvent = 'addCourse';
+        var editCourseEvent = 'editCourse';
+        var pushCourseToEditFormEvent = 'pushCourseToEditForm';
+        $rootScope.$on(toggleFromForAddEvent, function (event, data) {
             $ctrl.showFromForAdd = data;
         });
 
         $ctrl.addCourse = function () {
-            let course = {
+            var course = {
                 title: $ctrl.courseTitle,
                 description: $ctrl.courseDescription,
                 uploadDate: new Date().toISOString()
             };
 
-            $rootScope.$broadcast('addCourse', course);
+            $rootScope.$broadcast(addCourseEvent, course);
             $ctrl.courseTitle = '';
             $ctrl.courseDescription = '';
             $ctrl.showFromForAdd = !$ctrl.showFromForAdd;
         };
 
-        $rootScope.$on('pushCourseToEditForm', function (event, data) {
+        $rootScope.$on(pushCourseToEditFormEvent, function (event, data) {
             $ctrl.selectedCourse = data;
             $ctrl.courseTitleToEdit = data.title;
             $ctrl.courseDescriptionToEdit = data.description;
@@ -38,7 +41,7 @@ angular
                 selectedCourse: $ctrl.selectedCourse
             };
 
-            $rootScope.$broadcast('editCourse', course);
+            $rootScope.$broadcast(editCourseEvent, course);
             $ctrl.courseTitle = '';
             $ctrl.courseDescription = '';
             $ctrl.showFromForEdit = !$ctrl.showFromForEdit;

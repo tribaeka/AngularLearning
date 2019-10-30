@@ -8,6 +8,7 @@ angular
         }
 
         function getFullName(user) {
+            if (user === undefined) return;
             return user.firstName + ' ' + user.lastName;
         }
 

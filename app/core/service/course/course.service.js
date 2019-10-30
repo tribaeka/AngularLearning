@@ -6,7 +6,23 @@ angular
         function loadCourses() {
             return $http.get('data/courses.json');
         }
-
+        function addCourse(data, array) {
+            array.unshift(data);
+        }
+        function editCourse(data, array) {
+            var course = {
+                title: data.title,
+                description: data.description,
+                uploadDate: data.uploadDate
+            };
+            this.addDisplayDateAndTimeAfterUpdating(course);
+            var index = array.indexOf(data.selectedCourse);
+            if (index !== -1) array[index] = course;
+        }
+        function deleteCourse(course, array) {
+            var index = array.indexOf(course);
+            if (index !== -1) array.splice(index, 1);
+        }
         function addDisplayDateAndDuration(course) {
             var uploadDate = new Date(course.uploadDate);
             course.displayDate = dateToDisplayDate(uploadDate);
@@ -27,6 +43,9 @@ angular
 
         return {
             loadCourses: loadCourses,
-            addDisplayDateAndTimeAfterUpdating: addDisplayDateAndDuration
+            addDisplayDateAndTimeAfterUpdating: addDisplayDateAndDuration,
+            addCourse: addCourse,
+            editCourse: editCourse,
+            deleteCourse: deleteCourse
         };
     } ]);

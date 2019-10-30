@@ -4,44 +4,40 @@ angular
     .module('courseList')
     .controller('CourseListController', function($rootScope, $scope, courseService) {
         var $ctrl = this;
-        $rootScope.$on('coursesWasLoaded', function(event, data) {
+        var coursesLoadEvent = 'coursesWasLoaded';
+        var applyFilterEvent = 'applyFilter';
+        var addCourseEvent = 'addCourse';
+        var editCourseEvent = 'editCourse';
+        var pushCourseToEditFormEvent = 'pushCourseToEditForm';
+        $rootScope.$on(coursesLoadEvent, function(event, data) {
             $ctrl.courses = data;
         });
         $ctrl.coursePullSize = 4;
 
         $ctrl.increase = function() {
+            console.log('load more button');
             $ctrl.coursePullSize += 4;
         };
 
-        $rootScope.$on('applyFilter', function(event, data) {
+        $rootScope.$on(applyFilterEvent, function(event, data) {
             $ctrl.filterValue = data;
         });
 
-        $rootScope.$on('addCourse', function(event, data) {
+        $rootScope.$on(addCourseEvent, function(event, data) {
             courseService.addDisplayDateAndTimeAfterUpdating(data);
-            $ctrl.courses.unshift(data);
+            courseService.addCourse(data, $ctrl.courses);
         });
 
         $ctrl.pushCourseToEditForm = function(course) {
-            $rootScope.$broadcast('pushCourseToEditForm', course);
+            $rootScope.$broadcast(pushCourseToEditFormEvent, course);
         };
 
-        $rootScope.$on('editCourse', function(event, data) {
-            var course = {
-                title: data.title,
-                description: data.description,
-                uploadDate: data.uploadDate
-            };
-            courseService.addDisplayDateAndTimeAfterUpdating(course);
-
-            var index = $ctrl.courses.indexOf(data.selectedCourse);
-            if (index !== -1) $ctrl.courses[index] = course;
-
+        $rootScope.$on(editCourseEvent, function(event, data) {
+            courseService.editCourse(data, $ctrl.courses);
         });
 
         $ctrl.deleteCourse = function(course) {
-            var index = $ctrl.courses.indexOf(course);
-            if (index !== -1) $ctrl.courses.splice(index, 1);
+            courseService.deleteCourse(course, $ctrl.courses);
         };
 
     });
