@@ -1,12 +1,22 @@
 <div class="header">
     <ul class="nav-list flex-justify-between">
         <li class="logo-item nav-item">
-            <img class="logo-image" src="img/logo.png" alt="">
-            <a class="logo-title nav-item-elem" href="#">Logo</a>
+            <img class="logo-image"
+                 src="img/logo.png"
+                 alt="">
+            <a class="logo-title nav-item-elem"
+               href="#">Logo</a>
         </li>
         <li class="nav-item">
-            <a class="nav-item-elem" href="#">{{::$ctrl.getFullName($ctrl.user)}}</a>
-            <button class="btn btn-logoff" id="btn-logoff-pos" type="button">Log off</button>
+            <a class="nav-item-elem"
+               href="#">
+                {{::$ctrl.getFullName($ctrl.user)}}
+            </a>
+            <button class="btn btn-logoff"
+                    id="btn-logoff-pos"
+                    type="button">
+                Log off
+            </button>
         </li>
     </ul>
 </div>

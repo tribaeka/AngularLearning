@@ -1,12 +1,20 @@
 <div class="course-control-bar flex-justify-between">
     <div>
-        <input class="inp-search" type="search" placeholder="Name, fragment or date"
-               aria-label="Search" ng-model="$ctrl.inputFilterValue">
-        <button class="btn btn-info" type="submit" aria-expanded="false"
-                ng-click="$ctrl.applyFilter()">Search</button>
+        <input class="inp-search"
+               type="search"
+               placeholder="Name, fragment or date"
+               aria-label="Search"
+               ng-model="$ctrl.inputFilterValue">
+        <button class="btn btn-info"
+                type="submit"
+                ng-click="$ctrl.applyFilter()">
+            Search
+        </button>
     </div>
     <div>
-        <button class="btn btn-info" id="btn-add-pos" type="button"
+        <button class="btn btn-info"
+                id="btn-add-pos"
+                type="button"
                 ng-click="$ctrl.toggleFromForAdd()">
             Add course
         </button>

@@ -3,26 +3,33 @@
 angular
     .module('course')
     .factory('courseService', [ '$http', function($http) {
+
         function loadCourses() {
-            return $http.get('data/courses.json');
+            return $http
+                .get('data/courses.json')
+                .then(function(coursesData) {
+                    angular.forEach(coursesData.data, function(course) {
+                        addDisplayDateAndDuration(course);
+                    });
+
+                    return coursesData.data;
+                });
         }
         function addCourse(data, array) {
             array.unshift(data);
         }
+
         function editCourse(data, array) {
-            var course = {
-                title: data.title,
-                description: data.description,
-                uploadDate: data.uploadDate
-            };
-            this.addDisplayDateAndTimeAfterUpdating(course);
+            addDisplayDateAndDuration(data);
             var index = array.indexOf(data.selectedCourse);
-            if (index !== -1) array[index] = course;
+            if (index !== -1) array[index] = data;
         }
+
         function deleteCourse(course, array) {
             var index = array.indexOf(course);
             if (index !== -1) array.splice(index, 1);
         }
+
         function addDisplayDateAndDuration(course) {
             var uploadDate = new Date(course.uploadDate);
             course.displayDate = dateToDisplayDate(uploadDate);
@@ -43,7 +50,6 @@ angular
 
         return {
             loadCourses: loadCourses,
-            addDisplayDateAndTimeAfterUpdating: addDisplayDateAndDuration,
             addCourse: addCourse,
             editCourse: editCourse,
             deleteCourse: deleteCourse

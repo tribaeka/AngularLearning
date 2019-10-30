@@ -3,8 +3,6 @@
 angular
     .module('courseContent')
     .component('courseContent', {
-        template: '<course-control></course-control>' +
-            '<forms></forms>' +
-            '<course-list></course-list>',
+        templateUrl: 'core/component/course-content/course-content.template.html',
         controller: 'CourseContentController'
     });

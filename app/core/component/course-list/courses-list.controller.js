@@ -3,13 +3,15 @@
 angular
     .module('courseList')
     .controller('CourseListController', function($rootScope, $scope, courseService) {
+        // eslint-disable-next-line consistent-this,no-invalid-this
         var $ctrl = this;
         $ctrl.coursesIsLoaded = $ctrl.courses !== undefined;
         var coursesLoadEvent = 'coursesWasLoaded';
-        var applyFilterEvent = 'applyFilter';
+        var sendFiltersInputValueToCoursesFilterEvent = 'applyFilter';
         var addCourseEvent = 'addCourse';
         var editCourseEvent = 'editCourse';
         var pushCourseToEditFormEvent = 'pushCourseToEditForm';
+
         $rootScope.$on(coursesLoadEvent, function(event, data) {
             $ctrl.courses = data;
             $ctrl.coursesIsLoaded = true;
@@ -21,7 +23,7 @@ angular
             $ctrl.coursePullSize += 4;
         };
 
-        $rootScope.$on(applyFilterEvent, function(event, data) {
+        $rootScope.$on(sendFiltersInputValueToCoursesFilterEvent, function(event, data) {
             $ctrl.filterValue = data;
         });
 
