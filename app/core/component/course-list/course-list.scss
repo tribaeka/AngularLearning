@@ -1,0 +1,37 @@
+@import "../../../colors";
+
+.course-container {
+  border-radius: 0.25rem;
+
+  .info {
+    width: 85%;
+    display: inline-block;
+
+  }
+
+  .action-bar {
+    width: 10%;
+    display: inline-block;
+  }
+
+  .course-list {
+    list-style-type: none;
+    border: 0.2rem solid $grayLightColor;
+    margin: 1rem;
+    border-radius: 0.25rem;
+  }
+
+  .action-bar {
+    margin: 0.5rem;
+
+    .action-btn {
+      width: 80%;
+      margin: 0.2rem 0 0.2rem 2.5rem;
+    }
+  }
+
+  .course-date {
+    display: block;
+    margin-right: 1.5rem;
+  }
+}

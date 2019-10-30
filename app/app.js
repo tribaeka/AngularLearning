@@ -8,7 +8,7 @@ angular.module('app', [
     'courseControl',
     'forms',
     'courseList',
-    'footerComp'
+    'appFooter'
 ]).config(function($routeProvider) {
     $routeProvider
         .otherwise('/', {

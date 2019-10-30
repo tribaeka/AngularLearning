@@ -1,0 +1,19 @@
+@mixin loadMoreBtnScaling ($margin) {
+  margin: $margin $margin ($footerHeight + $margin) $margin;
+}
+
+@mixin basicButton {
+  padding: 0.5rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+@mixin coloredButton($mainColor, $secondaryColor){
+  background: $mainColor;
+  color: $secondaryColor;
+  border: 0.1rem solid $secondaryColor;
+  border-radius: 0.4rem;
+}

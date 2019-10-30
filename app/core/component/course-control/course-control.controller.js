@@ -6,6 +6,7 @@ angular
         var $ctrl = this;
         $ctrl.showFromForAdd = false;
         $ctrl.applyFilter = function() {
+            console.log('filter value = ' + $ctrl.inputFilterValue);
             $rootScope.$broadcast('applyFilter', $ctrl.inputFilterValue);
             $ctrl.inputFilterValue = '';
         };

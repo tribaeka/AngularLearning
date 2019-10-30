@@ -1,0 +1,12 @@
+@import "../../../colors";
+
+.course-control-bar {
+  background: $lightBlueColor;
+  padding: 1rem 0.75rem;
+  border-radius: 0.25rem;
+
+  .inp-search {
+    padding: 0.25rem;
+    margin: 0 0.75rem;
+  }
+}

@@ -1,0 +1,21 @@
+@import "../../../colors";
+
+.header {
+  background: $blueColor;
+  color: white;
+  border-radius: 0.25rem;
+
+  .logo-item {
+
+    .logo-title {
+      font-size: 1.5rem;
+    }
+
+    .logo-image {
+      vertical-align: middle;
+      margin-right: 0.25rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}

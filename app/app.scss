@@ -1,28 +1,5 @@
-$whiteColor: #f7f7f7;
-$grayLightColor: #cccccc;
-$blueColor: #0275d8;
-$lightBlueColor: #5bc0de;
-$footerHeight: 3.5rem;
-
-@mixin loadMoreBtnScaling ($margin) {
-  margin: $margin $margin ($footerHeight + $margin) $margin;
-}
-
-@mixin basicButton {
-  padding: 0.5rem 1.5rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1rem;
-  font-family: 'Roboto', sans-serif;
-}
-
-@mixin coloredButton($mainColor, $secondaryColor){
-  background: $mainColor;
-  color: $secondaryColor;
-  border: 0.1rem solid $secondaryColor;
-  border-radius: 0.4rem;
-}
+@import "mixin";
+@import "colors";
 
 body {
   background: $whiteColor;
@@ -32,10 +9,6 @@ body {
   border: 0.1rem solid $grayLightColor;
   border-radius: 0.4rem;
   font-family: 'Roboto', sans-serif;
-  .course-control-bar, .course-container,
-  .header, .footer{
-    border-radius: 0.25rem;
-  }
 }
 .container {
   min-height: calc(100vh - 75px);
@@ -53,40 +26,6 @@ body {
       color: inherit;
       margin: 0 0.75rem;
     }
-  }
-}
-
-.header {
-  background: $blueColor;
-  color: white;
-
-  .logo-item {
-
-    .logo-title {
-      font-size: 1.5rem;
-    }
-
-    .logo-image {
-      vertical-align: middle;
-      margin-right: 0.25rem;
-      width: 2.5rem;
-      height: 2.5rem;
-    }
-  }
-}
-
-.breadcrumbs {
-  font-size: 1.1rem;
-  color: black;
-}
-
-.course-control-bar {
-  background: $lightBlueColor;
-  padding: 1rem 0.75rem;
-
-  .inp-search {
-    padding: 0.25rem;
-    margin: 0 0.75rem;
   }
 }
 
@@ -147,81 +86,4 @@ body {
 .flex-justify-between {
   display: flex;
   justify-content: space-between;
-}
-
-.course-container {
-  .info {
-    width: 85%;
-    display: inline-block;
-
-  }
-
-  .action-bar {
-    width: 10%;
-    display: inline-block;
-  }
-
-  .course-list {
-    list-style-type: none;
-    border: 0.2rem solid $grayLightColor;
-    margin: 1rem;
-    border-radius: 0.25rem;
-  }
-
-  .action-bar {
-    margin: 0.5rem;
-
-    .action-btn {
-      width: 80%;
-      margin: 0.2rem 0 0.2rem 2.5rem;
-    }
-  }
-
-  .course-date {
-    display: block;
-    margin-right: 1.5rem;
-  }
-}
-
-.footer {
-  background: $blueColor;
-  text-align: right;
-  width: 100%;
-  height: $footerHeight;
-
-  .footer-description {
-    padding-top: 1rem;
-    padding-right: 1rem;
-  }
-}
-
-.form-wrapper {
-  .form-title {
-    margin-left: 2rem;
-  }
-
-  .courses-form {
-    background: white;
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 0.25rem;
-    border: 0.1rem solid $grayLightColor;
-
-    .course-form-input {
-      width: 100%;
-      margin: 0.5rem 0 ;
-      padding: 0.25rem;
-      height: 1.5rem;
-      border: 0.2rem solid $grayLightColor;
-      border-radius: 0.25rem;
-    }
-
-    .course-from-label {
-      padding-left: 0.25rem;
-    }
-
-    .course-form-input, .course-from-label {
-      font-size: 1rem;
-    }
-  }
 }
