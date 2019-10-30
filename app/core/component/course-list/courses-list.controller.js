@@ -4,6 +4,7 @@ angular
     .module('courseList')
     .controller('CourseListController', function($rootScope, $scope, courseService) {
         var $ctrl = this;
+        $ctrl.coursesIsLoaded = $ctrl.courses !== undefined;
         var coursesLoadEvent = 'coursesWasLoaded';
         var applyFilterEvent = 'applyFilter';
         var addCourseEvent = 'addCourse';
@@ -11,6 +12,7 @@ angular
         var pushCourseToEditFormEvent = 'pushCourseToEditForm';
         $rootScope.$on(coursesLoadEvent, function(event, data) {
             $ctrl.courses = data;
+            $ctrl.coursesIsLoaded = true;
         });
         $ctrl.coursePullSize = 4;
 

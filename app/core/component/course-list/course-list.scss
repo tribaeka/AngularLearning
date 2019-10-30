@@ -35,3 +35,29 @@
     margin-right: 1.5rem;
   }
 }
+
+.loader-wrapper {
+  margin-top: 18rem;
+  .loader {
+    border: 16px solid $grayLightColor;
+    border-top: 16px solid $blueColor;
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    margin: auto;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+}
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}

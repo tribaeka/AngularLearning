@@ -296,6 +296,23 @@ body {
     display: block;
     margin-right: 1.5rem; }
 
+.loader-wrapper {
+  margin-top: 18rem; }
+  .loader-wrapper .loader {
+    border: 16px solid #cccccc;
+    border-top: 16px solid #0275d8;
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    margin: auto;
+    animation: spin 2s linear infinite; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
 .form-wrapper .form-title {
   margin-left: 2rem; }
 

@@ -1,4 +1,4 @@
-<div class="course-container">
+<div class="course-container" ng-show="$ctrl.coursesIsLoaded">
     <ul class="course-list" ng-repeat="course in $ctrl.courses | limitTo:$ctrl.coursePullSize |
     filter: $ctrl.filterValue">
         {{test}}
@@ -23,4 +23,7 @@
     </ul>
     <button type="button" class="btn btn-secondary "
             ng-click="$ctrl.increase()">LOAD MORE</button>
+</div>
+<div class="loader-wrapper" ng-hide="$ctrl.coursesIsLoaded">
+    <div class="loader"></div>
 </div>
