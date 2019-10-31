@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('forms', []);
+angular.module('forms', ['events']);

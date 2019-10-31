@@ -2,20 +2,21 @@
 
 angular
     .module('courseList')
-    .controller('CourseListController', function($rootScope, $scope, courseService) {
+    .controller('CourseListController', function(
+        $rootScope, courseService, addCourseEvent, editCourseEvent,
+        sendFiltersInputValueToCoursesFilterEvent, pushCourseToEditFormEvent
+    ) {
         // eslint-disable-next-line consistent-this,no-invalid-this
         var $ctrl = this;
-        $ctrl.coursesIsLoaded = $ctrl.courses !== undefined;
-        var coursesLoadEvent = 'coursesWasLoaded';
-        var sendFiltersInputValueToCoursesFilterEvent = 'applyFilter';
-        var addCourseEvent = 'addCourse';
-        var editCourseEvent = 'editCourse';
-        var pushCourseToEditFormEvent = 'pushCourseToEditForm';
+        $ctrl.coursesIsLoaded = !!$ctrl.courses;
 
-        $rootScope.$on(coursesLoadEvent, function(event, data) {
-            $ctrl.courses = data;
-            $ctrl.coursesIsLoaded = true;
-        });
+        $ctrl.$onInit = function() {
+            courseService.loadCourses().then(function(coursesData) {
+                $ctrl.courses = coursesData;
+                $ctrl.coursesIsLoaded = true;
+            });
+        };
+
         $ctrl.coursePullSize = 4;
 
         $ctrl.onLoadMoreClick = function() {

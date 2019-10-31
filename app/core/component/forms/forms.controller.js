@@ -2,13 +2,12 @@
 
 angular
     .module('forms')
-    .controller('formsController', function($rootScope) {
+    .controller('formsController', function(
+        $rootScope, addCourseEvent, pushCourseToEditFormEvent,
+        editCourseEvent, toggleVisibilityFromForAddEvent
+    ) {
         // eslint-disable-next-line consistent-this,no-invalid-this
         var $ctrl = this;
-        var toggleVisibilityFromForAddEvent = 'toggleFromForAdd';
-        var addCourseEvent = 'addCourse';
-        var editCourseEvent = 'editCourse';
-        var pushCourseToEditFormEvent = 'pushCourseToEditForm';
 
         $rootScope.$on(toggleVisibilityFromForAddEvent, function(event, data) {
             $ctrl.showFromForAdd = data;

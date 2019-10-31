@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('core', [ 'course', 'user' ]);
+angular.module('core', [ 'course', 'user', 'events' ]);
