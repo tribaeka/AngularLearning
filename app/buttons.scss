@@ -1,0 +1,57 @@
+@import "mixins";
+@import "colors";
+
+.btn-logoff {
+  @include basicButton;
+  @include coloredButton($blueColor, white);
+}
+
+.btn-logoff:hover {
+  @include basicButton;
+  @include coloredButton(white, $blueColor);
+}
+
+.btn-info {
+  @include basicButton;
+  @include coloredButton($lightBlueColor, white);
+}
+
+.btn-info:hover {
+  @include basicButton;
+  @include coloredButton(white, $lightBlueColor);
+
+}
+
+#btn-add-pos {
+  margin-right: 7rem;
+}
+
+.btn-add-edit {
+  @include basicButton;
+  @include coloredButton($blueColor, white);
+}
+
+.btn-edit {
+  @include basicButton;
+  @include coloredButton($blueColor, white);
+  padding: 0.75rem 0;
+}
+
+.btn-delete {
+  @include basicButton;
+  @include coloredButton(#d9534f, white);
+  padding: 0.75rem 0;
+}
+
+.btn-secondary {
+  @include basicButton;
+  background: $grayLightColor;
+  color: black;
+  border: 0.1rem solid $grayLightColor;
+  border-radius: 0.3rem;
+  padding: 0.75rem 0;
+  display: block;
+  margin: 1rem;
+  width: 98.5%;
+  font-weight: 500;
+}

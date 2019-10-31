@@ -1,0 +1,59 @@
+@import "../../../colors";
+
+.course-container {
+  border-radius: 0.25rem;
+
+  .info {
+    width: 85%;
+    display: inline-block;
+  }
+
+  .action-bar {
+    width: 10%;
+    display: inline-block;
+  }
+
+  .course-list {
+    list-style-type: none;
+    border: 0.2rem solid $grayLightColor;
+    margin: 1rem;
+    border-radius: 0.25rem;
+  }
+
+  .action-bar {
+    margin: 0.5rem;
+
+    .action-btn {
+      width: 80%;
+      margin: 0.2rem 0 0.2rem 2.5rem;
+    }
+  }
+
+  .course-date {
+    display: block;
+    margin-right: 1.5rem;
+  }
+}
+
+.loader-wrapper {
+  margin-top: 18rem;
+
+  .loader {
+    border: 16px solid $grayLightColor;
+    border-top: 16px solid $blueColor;
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    margin: auto;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

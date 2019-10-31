@@ -12,33 +12,40 @@
 </head>
 <body ng-cloak>
 
-    <div class="container">
-      <nav-bar></nav-bar>
-      <course-control></course-control>
-      <forms></forms>
-      <course-list></course-list>
-      <footer-comp></footer-comp>
-    </div>
-
-
+  <div class="container">
+    <app-header></app-header>
+    <breadcrumbs></breadcrumbs>
+    <course-control></course-control>
+    <forms></forms>
+    <course-list></course-list>
+  </div>
+  <app-footer></app-footer>
 
   <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
   <script src="core/core.module.js"></script>
   <script src="core/service/course/course.module.js"></script>
   <script src="core/service/course/course.service.js"></script>
+  <script src="core/service/user/user.module.js"></script>
+  <script src="core/service/user/user.service.js"></script>
+  <script src="core/service/events/events.module.js"></script>
+  <script src="core/service/events/events.constant.js"></script>
+  <script src="core/component/app-header/app-header.module.js"></script>
+  <script src="core/component/app-header/app-header.component.js"></script>
+  <script src="core/component/app-header/app-header.controller.js"></script>
+  <script src="core/component/breadcrumbs/breadcrumbs.module.js"></script>
+  <script src="core/component/breadcrumbs/breadcrumbs.component.js"></script>
   <script src="core/component/course-control/course-control.module.js"></script>
   <script src="core/component/course-control/course-control.component.js"></script>
   <script src="core/component/course-control/course-control.controller.js"></script>
-  <script src="core/component/forms/forms.module.js"></script>
-  <script src="core/component/forms/forms.component.js"></script>
-  <script src="core/component/forms/forms.controller.js"></script>
   <script src="core/component/course-list/course-list.module.js"></script>
   <script src="core/component/course-list/courses-list.controller.js"></script>
   <script src="core/component/course-list/course-list.component.js"></script>
-  <script src="core/component/navbar/navbar.module.js"></script>
-  <script src="core/component/navbar/navbar.component.js"></script>
-  <script src="core/component/footer-comp/footer-comp.module.js"></script>
-  <script src="core/component/footer-comp/footer-comp.component.js"></script>
+  <script src="core/component/forms/forms.module.js"></script>
+  <script src="core/component/forms/forms.component.js"></script>
+  <script src="core/component/forms/forms.controller.js"></script>
+  <script src="core/component/app-footer/app-footer.module.js"></script>
+  <script src="core/component/app-footer/app-footer.component.js"></script>
 </body>
 </html>

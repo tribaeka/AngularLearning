@@ -1,6 +1,3 @@
-(function () {
-    'use strict';
+'use strict';
 
-    angular.module('course', []);
-
-})();
+angular.module('course', []);

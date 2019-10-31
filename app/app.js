@@ -1,12 +1,16 @@
-(function () {
-    "use strict";
-
-    angular.module('app', [
-        'core',
-        'navBar',
-        'courseControl',
-        'forms',
-        'courseList',
-        'footerComp'
-    ]);
-})();
+'use strict';
+angular.module('app', [
+    'ngRoute',
+    'core',
+    'appHeader',
+    'breadcrumbs',
+    'courseControl',
+    'forms',
+    'courseList',
+    'appFooter'
+]).config(function($routeProvider) {
+    $routeProvider
+        .otherwise('/', {
+            templateUrl: 'index.html'
+        });
+});

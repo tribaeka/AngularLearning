@@ -1,56 +1,48 @@
-(function () {
-    "use strict";
+'use strict';
 
-    angular
-        .module('courseList')
-        .controller('CourseListController', function($rootScope,  courseService) {
+angular
+    .module('courseList')
+    .controller('CourseListController', function(
+        $rootScope, courseService, addCourseEvent, editCourseEvent,
+        sendFiltersInputValueToCoursesFilterEvent, pushCourseToEditFormEvent
+    ) {
+        // eslint-disable-next-line consistent-this,no-invalid-this
+        var $ctrl = this;
+        $ctrl.coursesIsLoaded = !!$ctrl.courses;
 
-            let $ctrl = this;
-
-            courseService.loadCourses().then(
-                function(courses) {
-                    $ctrl.courses = courses.data;
-                    angular.forEach($ctrl.courses, course => {
-                        courseService.addDisplayDateAndTimeAfterUpdating(course);
-                    });
-                });
-
-            $ctrl.coursePullSize = 4;
-
-            $ctrl.increase = function () {
-                $ctrl.coursePullSize += 4;
-            };
-
-            $rootScope.$on('applyFilter', function (event, data) {
-                $ctrl.filterValue = data;
+        $ctrl.$onInit = function() {
+            courseService.loadCourses().then(function(coursesData) {
+                $ctrl.courses = coursesData;
+                $ctrl.coursesIsLoaded = true;
             });
+        };
 
-            $rootScope.$on('addCourse', function (event, data) {
-                courseService.addDisplayDateAndTimeAfterUpdating(data);
-                $ctrl.courses.unshift(data);
-            });
+        $ctrl.coursePullSize = 4;
 
-            $ctrl.pushCourseToEditForm = function (course) {
-                $rootScope.$broadcast('pushCourseToEditForm', course);
-            };
+        $ctrl.onLoadMoreClick = function() {
+            console.log('load more button');
+            $ctrl.coursePullSize += 4;
+        };
 
-            $rootScope.$on('editCourse', function (event, data) {
-                let course = {
-                    title: data.title,
-                    description: data.description,
-                    uploadDate: data.uploadDate
-                };
-                courseService.addDisplayDateAndTimeAfterUpdating(course);
-
-                let index = $ctrl.courses.indexOf(data.selectedCourse);
-                if (index !== -1) $ctrl.courses[index] = course;
-
-            });
-
-            $ctrl.deleteCourse = function (course) {
-                let index = $ctrl.courses.indexOf(course);
-                if (index !== -1) $ctrl.courses.splice(index, 1);
-            };
-
+        $rootScope.$on(sendFiltersInputValueToCoursesFilterEvent, function(event, data) {
+            $ctrl.filterValue = data;
         });
-})();
+
+        $rootScope.$on(addCourseEvent, function(event, data) {
+            courseService.addDisplayDateAndTimeAfterUpdating(data);
+            courseService.addCourse(data, $ctrl.courses);
+        });
+
+        $ctrl.pushCourseToEditForm = function(course) {
+            $rootScope.$broadcast(pushCourseToEditFormEvent, course);
+        };
+
+        $rootScope.$on(editCourseEvent, function(event, data) {
+            courseService.editCourse(data, $ctrl.courses);
+        });
+
+        $ctrl.deleteCourse = function(course) {
+            courseService.deleteCourse(course, $ctrl.courses);
+        };
+
+    });
