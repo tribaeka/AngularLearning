@@ -2,7 +2,7 @@
 
 angular
     .module('forms')
-    .controller('formsController', function($rootScope, eventsFactory) {
+    .controller('formsController', function($rootScope, courseService, eventsFactory) {
         // eslint-disable-next-line consistent-this,no-invalid-this
         var $ctrl = this;
 
@@ -14,35 +14,30 @@ angular
             var course = {
                 title: $ctrl.courseTitle,
                 description: $ctrl.courseDescription,
+                duration: $ctrl.courseDuration,
                 uploadDate: new Date().toISOString()
             };
-
-            $rootScope.$broadcast(eventsFactory.addCourseEvent, course);
+            courseService.addCourse(course);
             $ctrl.courseTitle = '';
             $ctrl.courseDescription = '';
+            $ctrl.courseDuration = '';
             $ctrl.showFromForAdd = !$ctrl.showFromForAdd;
         };
 
         $rootScope.$on(eventsFactory.pushCourseToEditFormEvent, function(event, data) {
-            $ctrl.selectedCourse = data;
-            $ctrl.courseTitleToEdit = data.title;
-            $ctrl.courseDescriptionToEdit = data.description;
-            $ctrl.courseUploadDateToEdit = data.uploadDate;
-            $ctrl.courseDurationToEdit = data.duration;
+            var course = {
+                title: data.title,
+                description: data.description,
+                uploadDate: data.uploadDate,
+                duration: data.duration,
+                selectedCourse: data
+            };
+            $ctrl.toEditCourse = course;
             $ctrl.showFromForEdit = true;
         });
 
         $ctrl.editCourse = function() {
-            var course = {
-                title: $ctrl.courseTitleToEdit,
-                description: $ctrl.courseDescriptionToEdit,
-                uploadDate: $ctrl.courseUploadDateToEdit,
-                duration: $ctrl.courseDurationToEdit,
-                selectedCourse: $ctrl.selectedCourse
-            };
-            $rootScope.$broadcast(eventsFactory.editCourseEvent, course);
-            $ctrl.courseTitle = '';
-            $ctrl.courseDescription = '';
+            courseService.editCourse($ctrl.toEditCourse);
             $ctrl.showFromForEdit = !$ctrl.showFromForEdit;
         };
     });

@@ -11,24 +11,28 @@ angular
                     angular.forEach(coursesData.data, function(course) {
                         addDisplayDateAndDuration(course);
                     });
-
-                    return coursesData.data;
+                    courses = coursesData.data;
                 });
         }
-        function addCourse(data, array) {
+
+        function addCourse(data) {
             addDisplayDateAndDuration(data);
-            array.unshift(data);
+            courses.unshift(data);
         }
 
-        function editCourse(data, array) {
-            addDisplayDateAndDuration(data);
-            var index = array.indexOf(data.selectedCourse);
-            if (index !== -1) array[index] = data;
+        function getCourses() {
+            return courses;
         }
 
-        function deleteCourse(course, array) {
-            var index = array.indexOf(course);
-            if (index !== -1) array.splice(index, 1);
+        function editCourse(data) {
+            addDisplayDateAndDuration(data);
+            var index = courses.indexOf(data.selectedCourse);
+            if (index !== -1) courses[index] = data;
+        }
+
+        function deleteCourse(course) {
+            var index = courses.indexOf(course);
+            if (index !== -1) courses.splice(index, 1);
         }
 
         function addDisplayDateAndDuration(course) {
@@ -51,6 +55,7 @@ angular
 
         return {
             loadCourses: loadCourses,
+            getCourses: getCourses,
             addCourse: addCourse,
             editCourse: editCourse,
             deleteCourse: deleteCourse

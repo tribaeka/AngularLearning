@@ -8,10 +8,11 @@ angular
         $ctrl.coursesIsLoaded = !!$ctrl.courses;
 
         $ctrl.$onInit = function() {
-            courseService.loadCourses().then(function(coursesData) {
-                $ctrl.courses = coursesData;
-                $ctrl.coursesIsLoaded = true;
-            });
+            courseService.loadCourses()
+                .then(function() {
+                    $ctrl.courses = courseService.getCourses();
+                    $ctrl.coursesIsLoaded = true;
+                });
         };
 
         $ctrl.coursePullSize = 4;
@@ -25,20 +26,12 @@ angular
             $ctrl.filterValue = data;
         });
 
-        $rootScope.$on(eventsFactory.addCourseEvent, function(event, data) {
-            courseService.addCourse(data, $ctrl.courses);
-        });
-
         $ctrl.pushCourseToEditForm = function(course) {
             $rootScope.$broadcast(eventsFactory.pushCourseToEditFormEvent, course);
         };
 
-        $rootScope.$on(eventsFactory.editCourseEvent, function(event, data) {
-            courseService.editCourse(data, $ctrl.courses);
-        });
-
         $ctrl.deleteCourse = function(course) {
-            courseService.deleteCourse(course, $ctrl.courses);
+            courseService.deleteCourse(course);
         };
 
     });
