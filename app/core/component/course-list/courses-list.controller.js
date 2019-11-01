@@ -2,10 +2,7 @@
 
 angular
     .module('courseList')
-    .controller('CourseListController', function(
-        $rootScope, courseService, addCourseEvent, editCourseEvent,
-        sendFiltersInputValueToCoursesFilterEvent, pushCourseToEditFormEvent
-    ) {
+    .controller('CourseListController', function($rootScope, courseService, eventsFactory) {
         // eslint-disable-next-line consistent-this,no-invalid-this
         var $ctrl = this;
         $ctrl.coursesIsLoaded = !!$ctrl.courses;
@@ -24,20 +21,19 @@ angular
             $ctrl.coursePullSize += 4;
         };
 
-        $rootScope.$on(sendFiltersInputValueToCoursesFilterEvent, function(event, data) {
+        $rootScope.$on(eventsFactory.sendFiltersInputValueToCoursesFilterEvent, function(event, data) {
             $ctrl.filterValue = data;
         });
 
-        $rootScope.$on(addCourseEvent, function(event, data) {
-            courseService.addDisplayDateAndTimeAfterUpdating(data);
+        $rootScope.$on(eventsFactory.addCourseEvent, function(event, data) {
             courseService.addCourse(data, $ctrl.courses);
         });
 
         $ctrl.pushCourseToEditForm = function(course) {
-            $rootScope.$broadcast(pushCourseToEditFormEvent, course);
+            $rootScope.$broadcast(eventsFactory.pushCourseToEditFormEvent, course);
         };
 
-        $rootScope.$on(editCourseEvent, function(event, data) {
+        $rootScope.$on(eventsFactory.editCourseEvent, function(event, data) {
             courseService.editCourse(data, $ctrl.courses);
         });
 

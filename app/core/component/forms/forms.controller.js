@@ -2,14 +2,11 @@
 
 angular
     .module('forms')
-    .controller('formsController', function(
-        $rootScope, addCourseEvent, pushCourseToEditFormEvent,
-        editCourseEvent, toggleVisibilityFromForAddEvent
-    ) {
+    .controller('formsController', function($rootScope, eventsFactory) {
         // eslint-disable-next-line consistent-this,no-invalid-this
         var $ctrl = this;
 
-        $rootScope.$on(toggleVisibilityFromForAddEvent, function(event, data) {
+        $rootScope.$on(eventsFactory.toggleVisibilityFromForAddEvent, function(event, data) {
             $ctrl.showFromForAdd = data;
         });
 
@@ -20,13 +17,13 @@ angular
                 uploadDate: new Date().toISOString()
             };
 
-            $rootScope.$broadcast(addCourseEvent, course);
+            $rootScope.$broadcast(eventsFactory.addCourseEvent, course);
             $ctrl.courseTitle = '';
             $ctrl.courseDescription = '';
             $ctrl.showFromForAdd = !$ctrl.showFromForAdd;
         };
 
-        $rootScope.$on(pushCourseToEditFormEvent, function(event, data) {
+        $rootScope.$on(eventsFactory.pushCourseToEditFormEvent, function(event, data) {
             $ctrl.selectedCourse = data;
             $ctrl.courseTitleToEdit = data.title;
             $ctrl.courseDescriptionToEdit = data.description;
@@ -43,7 +40,7 @@ angular
                 duration: $ctrl.courseDurationToEdit,
                 selectedCourse: $ctrl.selectedCourse
             };
-            $rootScope.$broadcast(editCourseEvent, course);
+            $rootScope.$broadcast(eventsFactory.editCourseEvent, course);
             $ctrl.courseTitle = '';
             $ctrl.courseDescription = '';
             $ctrl.showFromForEdit = !$ctrl.showFromForEdit;

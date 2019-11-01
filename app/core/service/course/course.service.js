@@ -3,7 +3,7 @@
 angular
     .module('course')
     .factory('courseService', [ '$http', function($http) {
-
+        var courses = [];
         function loadCourses() {
             return $http
                 .get('data/courses.json')
@@ -16,6 +16,7 @@ angular
                 });
         }
         function addCourse(data, array) {
+            addDisplayDateAndDuration(data);
             array.unshift(data);
         }
 
