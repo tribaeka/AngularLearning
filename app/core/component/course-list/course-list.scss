@@ -1,4 +1,5 @@
 @import "../../../colors";
+@import "../../../mixins";
 
 .course-container {
   border-radius: 0.25rem;
@@ -15,9 +16,26 @@
 
   .course-list {
     list-style-type: none;
-    border: 0.2rem solid $grayLightColor;
     margin: 1rem;
-    border-radius: 0.25rem;
+    padding: 0 1rem;
+
+    .course-item {
+      margin: 0.75rem 0;
+      padding-left: 2rem;
+      border-radius: 0.25rem;
+    }
+
+    .fresh-border {
+      border: 0.2rem solid green;
+    }
+
+    .upcoming-border {
+      border: 0.2rem solid blue;
+    }
+
+    .default-border {
+      @include grayBorder;
+    }
   }
 
   .action-bar {

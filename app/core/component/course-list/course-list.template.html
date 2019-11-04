@@ -1,13 +1,15 @@
 <div class="course-container"
      ng-show="$ctrl.coursesIsLoaded">
-    <ul class="course-list"
-        ng-repeat="course in $ctrl.courses |
-        limitTo:$ctrl.coursePullSize |
-        filter: $ctrl.filterValue">
-        <li>
+    <ul class="course-list">
+        <li class="course-item"
+            state-by-date="course"
+            ng-repeat="course in $ctrl.courses |
+                limitTo:$ctrl.coursePullSize |
+                filter: $ctrl.filterValue">
             <div class="info">
                 <h3 class="flex-justify-between">
                     {{course.title}}
+                    {{course.topRated}}
                     <span>{{course.displayDuration}}&nbsp{{course.displayDate}}</span>
                 </h3>
                 <p>{{course.description}}</p>
@@ -27,10 +29,15 @@
         </li>
     </ul>
     <button type="button"
-            class="btn btn-secondary "
+            class="btn btn-secondary"
+            ng-if="$ctrl.courses"
             ng-click="$ctrl.onLoadMoreClick()">
         LOAD MORE
     </button>
+    <div class="btn btn-secondary"
+         ng-if="!$ctrl.courses">
+        NO DATA, FEEL FREE TO ADD NEW COURSE
+    </div>
 </div>
 <div class="loader-wrapper"
      ng-hide="$ctrl.coursesIsLoaded">

@@ -13,3 +13,7 @@
   border: 0.1rem solid $secondaryColor;
   border-radius: 0.4rem;
 }
+
+@mixin grayBorder() {
+  border: 0.2rem solid $grayLightColor;
+}
