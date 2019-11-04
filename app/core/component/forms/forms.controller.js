@@ -5,8 +5,8 @@ angular
     .controller('formsController', function($rootScope, courseService, eventsFactory) {
         // eslint-disable-next-line consistent-this,no-invalid-this
         var $ctrl = this;
-
-        $rootScope.$on(eventsFactory.toggleVisibilityFromForAddEvent, function(event, data) {
+        $ctrl.showFormForEdit = false;
+        $rootScope.$on(eventsFactory.toggleVisibilityFormForAddEvent, function(event, data) {
             $ctrl.showFromForAdd = data;
         });
 
@@ -33,11 +33,11 @@ angular
                 topRated: data.topRated,
                 selectedCourse: data
             };
-            $ctrl.showFromForEdit = true;
+            $ctrl.showFormForEdit = !$ctrl.showFormForEdit;
         });
 
         $ctrl.editCourse = function() {
             courseService.editCourse($ctrl.toEditCourse);
-            $ctrl.showFromForEdit = !$ctrl.showFromForEdit;
+            $ctrl.showFormForEdit = !$ctrl.showFormForEdit;
         };
     });

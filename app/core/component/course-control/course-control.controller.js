@@ -12,8 +12,8 @@ angular
             $ctrl.inputFilterValue = '';
         };
 
-        $ctrl.toggleFromForAdd = function() {
+        $ctrl.toggleFormForAdd = function() {
             $ctrl.showFromForAdd = !$ctrl.showFromForAdd;
-            $rootScope.$broadcast(eventsFactory.toggleVisibilityFromForAddEvent, $ctrl.showFromForAdd);
+            $rootScope.$broadcast(eventsFactory.toggleVisibilityFormForAddEvent, $ctrl.showFromForAdd);
         };
     });

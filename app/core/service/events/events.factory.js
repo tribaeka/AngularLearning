@@ -7,6 +7,6 @@ angular
             sendFiltersInputValueToCoursesFilterEvent: 'applyFilter',
             addCourseEvent: 'addCourse',
             pushCourseToEditFormEvent: 'pushCourseToEditForm',
-            toggleVisibilityFromForAddEvent: 'toggleFromForAdd'
+            toggleVisibilityFormForAddEvent: 'toggleFormForAdd'
         };
     });
