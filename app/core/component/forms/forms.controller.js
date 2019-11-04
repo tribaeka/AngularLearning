@@ -24,7 +24,7 @@ angular
             $ctrl.showFromForAdd = !$ctrl.showFromForAdd;
         };
 
-        $rootScope.$on(eventsFactory.pushCourseToEditFormEvent, function(event, data) {
+        $rootScope.$on(eventsFactory.courseExchangeWithEditForm, function(event, data) {
             $ctrl.toEditCourse = {
                 title: data.title,
                 description: data.description,

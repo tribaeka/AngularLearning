@@ -27,7 +27,7 @@ angular
         });
 
         $ctrl.pushCourseToEditForm = function(course) {
-            $rootScope.$broadcast(eventsFactory.pushCourseToEditFormEvent, course);
+            $rootScope.$broadcast(eventsFactory.courseExchangeWithEditForm, course);
         };
 
         $ctrl.deleteCourse = function(course) {
