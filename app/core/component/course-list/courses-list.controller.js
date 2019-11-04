@@ -37,4 +37,8 @@ angular
         $ctrl.topRatedClassIsIt = function(course) {
             if (course.topRated) return 'top-rated-course';
         };
+
+        $ctrl.creationDateToTime = function(course) {
+            return -(new Date(course.creationDate).getTime());
+        };
     });

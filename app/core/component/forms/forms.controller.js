@@ -15,7 +15,7 @@ angular
                 title: $ctrl.courseTitle,
                 description: $ctrl.courseDescription,
                 duration: $ctrl.courseDuration,
-                uploadDate: new Date().toISOString()
+                creationDate: new Date().toISOString()
             };
             courseService.addCourse(course);
             $ctrl.courseTitle = '';
@@ -28,7 +28,7 @@ angular
             $ctrl.toEditCourse = {
                 title: data.title,
                 description: data.description,
-                uploadDate: data.uploadDate,
+                creationDate: data.creationDate,
                 duration: data.duration,
                 topRated: data.topRated,
                 selectedCourse: data
