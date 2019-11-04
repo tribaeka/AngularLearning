@@ -4,9 +4,19 @@
 .course-container {
   border-radius: 0.25rem;
 
+  .top-rated-course {
+    background: $lightBlueColor;
+  }
   .info {
     width: 85%;
     display: inline-block;
+    margin-left: 2rem;
+
+
+    .top-rated-star {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   .action-bar {
@@ -21,7 +31,6 @@
 
     .course-item {
       margin: 0.75rem 0;
-      padding-left: 2rem;
       border-radius: 0.25rem;
     }
 

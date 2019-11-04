@@ -13,12 +13,12 @@
 
 .btn-info {
   @include basicButton;
-  @include coloredButton($lightBlueColor, white);
+  @include coloredButton($lightYellowColor, white);
 }
 
 .btn-info:hover {
   @include basicButton;
-  @include coloredButton(white, $lightBlueColor);
+  @include coloredButton(white, $lightYellowColor);
 
 }
 

@@ -34,4 +34,7 @@ angular
             courseService.deleteCourse(course);
         };
 
+        $ctrl.topRatedClassIsIt = function(course) {
+            if (course.topRated) return 'top-rated-course';
+        };
     });

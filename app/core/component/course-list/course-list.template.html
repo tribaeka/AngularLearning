@@ -6,25 +6,36 @@
             ng-repeat="course in $ctrl.courses |
                 limitTo:$ctrl.coursePullSize |
                 filter: $ctrl.filterValue">
-            <div class="info">
-                <h3 class="flex-justify-between">
-                    {{course.title}}
-                    {{course.topRated}}
-                    <span>{{course.displayDuration}}&nbsp{{course.displayDate}}</span>
-                </h3>
-                <p>{{course.description}}</p>
-            </div>
-            <div class="action-bar">
-                <button type="button"
-                        class="btn btn-edit action-btn"
-                        ng-click="$ctrl.pushCourseToEditForm(course)">
-                    <span>Edit</span>
-                </button>
-                <button type="button"
-                        class="btn btn-delete action-btn"
-                        ng-click="$ctrl.deleteCourse(course)">
-                    <span>Delete</span>
-                </button>
+            <div class="course-wrapper"
+                 ng-class="$ctrl.topRatedClassIsIt(course)">
+                <div class="info">
+                    <div class="flex-justify-between">
+                        <h3>
+                            {{course.title | uppercase}}
+                            <img src="img/star.svg"
+                                 width="24"
+                                 height="24"
+                                 ng-if="course.topRated"
+                                 alt="star">
+                        </h3>
+                        <h3>
+                            {{course.duration | durationFromMinutes}}&nbsp{{course.displayDate}}
+                        </h3>
+                    </div>
+                    <p>{{course.description}}</p>
+                </div>
+                <div class="action-bar">
+                    <button type="button"
+                            class="btn btn-edit action-btn"
+                            ng-click="$ctrl.pushCourseToEditForm(course)">
+                        <span>Edit</span>
+                    </button>
+                    <button type="button"
+                            class="btn btn-delete action-btn"
+                            ng-click="$ctrl.deleteCourse(course)">
+                        <span>Delete</span>
+                    </button>
+                </div>
             </div>
         </li>
     </ul>

@@ -38,7 +38,6 @@ angular
         function addDisplayDateAndDuration(course) {
             var uploadDate = new Date(course.uploadDate);
             course.displayDate = dateToDisplayDate(uploadDate);
-            course.displayDuration = toDisplayDuration(course.duration);
             course.uploadDate = uploadDate;
             course.uploadTime = uploadDate.getTime();
         }
@@ -47,10 +46,6 @@ angular
             return (date.getDate() < 10 ? '0'+ date.getDate() : date.getDate()) + '.' +
                 ((date.getMonth() + 1) < 10 ? '0'+ (date.getMonth() + 1) : (date.getMonth() + 1)) + '.' +
                 date.getFullYear();
-        }
-
-        function toDisplayDuration(duration) {
-            return duration > 59 ? Math.round(duration / 60) + 'h ' + duration % 60 + 'min' : duration + 'min';
         }
 
         return {

@@ -25,14 +25,14 @@ angular
         };
 
         $rootScope.$on(eventsFactory.pushCourseToEditFormEvent, function(event, data) {
-            var course = {
+            $ctrl.toEditCourse = {
                 title: data.title,
                 description: data.description,
                 uploadDate: data.uploadDate,
                 duration: data.duration,
+                topRated: data.topRated,
                 selectedCourse: data
             };
-            $ctrl.toEditCourse = course;
             $ctrl.showFromForEdit = true;
         });
 

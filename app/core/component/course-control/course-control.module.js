@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('courseControl', ['events']);
+angular.module('courseControl', ['core']);
