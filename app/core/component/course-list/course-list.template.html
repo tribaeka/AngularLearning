@@ -8,7 +8,7 @@
                 filter: $ctrl.filterValue |
                 orderBy: $ctrl.creationDateToTime">
             <div class="course-wrapper"
-                 ng-class="$ctrl.topRatedClassIsIt(course)">
+                 ng-class="$ctrl.isTopRated(course)">
                 <div class="info">
                     <div class="flex-justify-between">
                         <h3>

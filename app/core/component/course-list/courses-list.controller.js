@@ -34,7 +34,7 @@ angular
             courseService.deleteCourse(course);
         };
 
-        $ctrl.topRatedClassIsIt = function(course) {
+        $ctrl.isTopRated = function(course) {
             if (course.topRated) return 'top-rated-course';
         };
 
