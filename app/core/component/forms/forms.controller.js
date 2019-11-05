@@ -3,9 +3,9 @@
 angular
     .module('forms')
     .controller('formsController', function($rootScope, courseService, eventsFactory) {
-        // eslint-disable-next-line consistent-this,no-invalid-this
         var $ctrl = this;
         $ctrl.showFormForEdit = false;
+
         $rootScope.$on(eventsFactory.toggleVisibilityFormForAddEvent, function(event, data) {
             $ctrl.showFromForAdd = data;
         });

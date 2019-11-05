@@ -3,7 +3,6 @@
 angular
     .module('courseList')
     .controller('CourseListController', function($rootScope, courseService, eventsFactory) {
-        // eslint-disable-next-line consistent-this,no-invalid-this
         var $ctrl = this;
         $ctrl.coursesIsLoaded = !!$ctrl.courses;
 

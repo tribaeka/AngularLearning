@@ -2,7 +2,6 @@
 angular
     .module('appHeader')
     .controller('AppHeaderController', function($scope, userService) {
-        // eslint-disable-next-line consistent-this,no-invalid-this
         var $ctrl = this;
 
         $ctrl.$onInit = function() {
@@ -13,7 +12,7 @@ angular
             console.log('on destroy app-header');
         };
 
-        $ctrl.$onChanges = function(changes) {
+        $ctrl.$onChanges = function() {
             console.log('on changes');
         };
 

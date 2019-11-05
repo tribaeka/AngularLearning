@@ -83,7 +83,6 @@
     "no-implicit-coercion": "off",
     "no-implicit-globals": "off",
     "no-implied-eval": "off",
-    "no-invalid-this": "error",
     "no-iterator": "off",
     "no-labels": "off",
     "no-lone-blocks": "off",
@@ -177,11 +176,6 @@
     "comma-spacing": "error",
     "comma-style": "error",
     "computed-property-spacing": "off",
-    "consistent-this": [
-      "error",
-      "vm",
-      "self"
-    ],
     "eol-last": "error",
     "func-call-spacing": "error",
     "func-name-matching": "off",
