@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('appHeader', ['user']);
+angular.module('appHeader', ['core']);

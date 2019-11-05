@@ -2,50 +2,37 @@
 
 angular
     .module('forms')
-    .controller('formsController', function(
-        $rootScope, addCourseEvent, pushCourseToEditFormEvent,
-        editCourseEvent, toggleVisibilityFromForAddEvent
-    ) {
-        // eslint-disable-next-line consistent-this,no-invalid-this
+    .controller('formsController', function($rootScope, courseService, eventsFactory) {
         var $ctrl = this;
+        $ctrl.showFormForEdit = false;
 
-        $rootScope.$on(toggleVisibilityFromForAddEvent, function(event, data) {
-            $ctrl.showFromForAdd = data;
+        $rootScope.$on(eventsFactory.toggleVisibilityFormForAddEvent, function(event, showFormForAddTrigger) {
+            $ctrl.showFormForAdd = showFormForAddTrigger;
         });
 
         $ctrl.addCourse = function() {
             var course = {
+                id: courseService.generateNewId(),
                 title: $ctrl.courseTitle,
                 description: $ctrl.courseDescription,
-                uploadDate: new Date().toISOString()
+                duration: $ctrl.courseDuration,
+                creationDate: new Date().toISOString()
             };
-
-            $rootScope.$broadcast(addCourseEvent, course);
+            console.log(course);
+            courseService.addCourse(course);
             $ctrl.courseTitle = '';
             $ctrl.courseDescription = '';
-            $ctrl.showFromForAdd = !$ctrl.showFromForAdd;
+            $ctrl.courseDuration = '';
+            $ctrl.showFormForAdd = !$ctrl.showFormForAdd;
         };
 
-        $rootScope.$on(pushCourseToEditFormEvent, function(event, data) {
-            $ctrl.selectedCourse = data;
-            $ctrl.courseTitleToEdit = data.title;
-            $ctrl.courseDescriptionToEdit = data.description;
-            $ctrl.courseUploadDateToEdit = data.uploadDate;
-            $ctrl.courseDurationToEdit = data.duration;
-            $ctrl.showFromForEdit = true;
+        $rootScope.$on(eventsFactory.courseExchangeWithEditForm, function(event, course) {
+            $ctrl.toEditCourse = course;
+            $ctrl.showFormForEdit = !$ctrl.showFormForEdit;
         });
 
         $ctrl.editCourse = function() {
-            var course = {
-                title: $ctrl.courseTitleToEdit,
-                description: $ctrl.courseDescriptionToEdit,
-                uploadDate: $ctrl.courseUploadDateToEdit,
-                duration: $ctrl.courseDurationToEdit,
-                selectedCourse: $ctrl.selectedCourse
-            };
-            $rootScope.$broadcast(editCourseEvent, course);
-            $ctrl.courseTitle = '';
-            $ctrl.courseDescription = '';
-            $ctrl.showFromForEdit = !$ctrl.showFromForEdit;
+            courseService.editCourse($ctrl.toEditCourse);
+            $ctrl.showFormForEdit = !$ctrl.showFormForEdit;
         };
     });

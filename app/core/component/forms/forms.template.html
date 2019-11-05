@@ -1,9 +1,9 @@
 <div class="form-wrapper"
-     ng-show="$ctrl.showFromForAdd">
+     ng-show="$ctrl.showFormForAdd">
     <h4 class="form-title">Add Course</h4>
     <form class="courses-form"
           ng-submit="$ctrl.addCourse()">
-        <label class="course-from-label"
+        <label class="course-form-label"
                for="addCourseTitleInput">
             Title
         </label>
@@ -12,7 +12,7 @@
                id="addCourseTitleInput"
                placeholder="Enter title"
                ng-model="$ctrl.courseTitle">
-        <label class="course-from-label"
+        <label class="course-form-label"
                for="addCourseDescriptionInput">
             Description
         </label>
@@ -21,6 +21,15 @@
                id="addCourseDescriptionInput"
                placeholder="Enter description"
                ng-model="$ctrl.courseDescription">
+        <label class="course-form-label"
+               for="addCourseDescriptionInput">
+            Duration in min
+        </label>
+        <input type="text"
+               class="course-form-input"
+               id="addCourseDurationInput"
+               placeholder="Enter duration"
+               ng-model="$ctrl.courseDuration">
         <button type="submit"
                 class="btn btn-add-edit">
             Add
@@ -28,24 +37,31 @@
     </form>
 </div>
 <div class="form-wrapper"
-     ng-show="$ctrl.showFromForEdit">
+     ng-show="$ctrl.showFormForEdit">
     <h4 class="form-title">Edit Course</h4>
     <form class="courses-form"
           ng-submit="$ctrl.editCourse()">
-        <label class="course-from-label"
+        <label class="course-form-label"
                for="editCourseTitleInput">Title</label>
         <input type="text"
                class="course-form-input"
                id="editCourseTitleInput"
                placeholder="Enter title"
-               ng-model="$ctrl.courseTitleToEdit">
-        <label class="course-from-label"
+               ng-model="$ctrl.toEditCourse.title">
+        <label class="course-form-label"
                for="editCourseDescriptionInput">Description</label>
         <input type="text"
                class="course-form-input"
                id="editCourseDescriptionInput"
                placeholder="Enter description"
-               ng-model="$ctrl.courseDescriptionToEdit">
+               ng-model="$ctrl.toEditCourse.description">
+        <label class="course-form-label"
+               for="editCourseDescriptionInput">Duration</label>
+        <input type="text"
+               class="course-form-input"
+               id="editCourseDurationInput"
+               placeholder="Enter description"
+               ng-model="$ctrl.toEditCourse.duration">
         <button type="submit"
                 class="btn btn-add-edit">
             Edit

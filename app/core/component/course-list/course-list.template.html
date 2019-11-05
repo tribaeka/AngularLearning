@@ -1,36 +1,54 @@
 <div class="course-container"
      ng-show="$ctrl.coursesIsLoaded">
-    <ul class="course-list"
-        ng-repeat="course in $ctrl.courses |
-        limitTo:$ctrl.coursePullSize |
-        filter: $ctrl.filterValue">
-        <li>
-            <div class="info">
-                <h3 class="flex-justify-between">
-                    {{course.title}}
-                    <span>{{course.displayDuration}}&nbsp{{course.displayDate}}</span>
-                </h3>
-                <p>{{course.description}}</p>
-            </div>
-            <div class="action-bar">
-                <button type="button"
-                        class="btn btn-edit action-btn"
-                        ng-click="$ctrl.pushCourseToEditForm(course)">
-                    <span>Edit</span>
-                </button>
-                <button type="button"
-                        class="btn btn-delete action-btn"
-                        ng-click="$ctrl.deleteCourse(course)">
-                    <span>Delete</span>
-                </button>
+    <ul class="course-list">
+        <li class="course-item"
+            state-by-date="course"
+            ng-repeat="course in $ctrl.courses |
+                limitTo: $ctrl.coursePullSize |
+                filter: $ctrl.filterValue |
+                orderBy: $ctrl.creationDateToTime">
+            <div class="course-wrapper"
+                 ng-class="$ctrl.isTopRated(course)">
+                <div class="info">
+                    <div class="flex-justify-between">
+                        <h3>
+                            {{course.title | uppercase}}
+                            <img src="img/star.svg"
+                                 class="top-rated-star"
+                                 ng-if="course.topRated"
+                                 alt="star">
+                        </h3>
+                        <h3>
+                            {{course.duration | durationFromMinutes}}&nbsp{{course.creationDate | date:'dd.MM.yyyy'}}
+                        </h3>
+                    </div>
+                    <p>{{course.description}}</p>
+                </div>
+                <div class="action-bar">
+                    <button type="button"
+                            class="btn btn-edit action-btn"
+                            ng-click="$ctrl.pushCourseToEditForm(course)">
+                        <span>Edit</span>
+                    </button>
+                    <button type="button"
+                            class="btn btn-delete action-btn"
+                            ng-click="$ctrl.deleteCourse(course)">
+                        <span>Delete</span>
+                    </button>
+                </div>
             </div>
         </li>
     </ul>
     <button type="button"
-            class="btn btn-secondary "
+            class="btn btn-secondary"
+            ng-if="$ctrl.courses"
             ng-click="$ctrl.onLoadMoreClick()">
         LOAD MORE
     </button>
+    <div class="btn btn-secondary"
+         ng-if="!$ctrl.courses">
+        NO DATA, FEEL FREE TO ADD NEW COURSE
+    </div>
 </div>
 <div class="loader-wrapper"
      ng-hide="$ctrl.coursesIsLoaded">

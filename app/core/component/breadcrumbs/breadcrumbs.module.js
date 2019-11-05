@@ -1,5 +1,3 @@
-(function () {
-    'use strict';
+'use strict';
 
-    angular.module('breadcrumbs', []);
-})();
+angular.module('breadcrumbs', []);
