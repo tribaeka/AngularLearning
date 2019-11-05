@@ -30,11 +30,16 @@ angular
             if (index !== -1) courses.splice(index, 1);
         }
 
+        function generateNewId() {
+            return _.parseInt(_.maxBy(courses, 'id').id) + 1;
+        }
+
         return {
             loadCourses: loadCourses,
             getCourses: getCourses,
             addCourse: addCourse,
             editCourse: editCourse,
-            deleteCourse: deleteCourse
+            deleteCourse: deleteCourse,
+            generateNewId: generateNewId
         };
     } ]);

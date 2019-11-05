@@ -12,11 +12,13 @@ angular
 
         $ctrl.addCourse = function() {
             var course = {
+                id: courseService.generateNewId(),
                 title: $ctrl.courseTitle,
                 description: $ctrl.courseDescription,
                 duration: $ctrl.courseDuration,
                 creationDate: new Date().toISOString()
             };
+            console.log(course);
             courseService.addCourse(course);
             $ctrl.courseTitle = '';
             $ctrl.courseDescription = '';
