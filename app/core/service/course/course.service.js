@@ -21,7 +21,7 @@ angular
         }
 
         function editCourse(data) {
-            var index = courses.indexOf(data.selectedCourse);
+            var index = _.findIndex(courses, { id: data.id });
             if (index !== -1) courses[index] = data;
         }
 

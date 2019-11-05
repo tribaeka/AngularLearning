@@ -25,14 +25,7 @@ angular
         };
 
         $rootScope.$on(eventsFactory.courseExchangeWithEditForm, function(event, data) {
-            $ctrl.toEditCourse = {
-                title: data.title,
-                description: data.description,
-                creationDate: data.creationDate,
-                duration: data.duration,
-                topRated: data.topRated,
-                selectedCourse: data
-            };
+            $ctrl.toEditCourse = data;
             $ctrl.showFormForEdit = !$ctrl.showFormForEdit;
         });
 
