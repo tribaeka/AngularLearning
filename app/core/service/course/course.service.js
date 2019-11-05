@@ -12,17 +12,17 @@ angular
                 });
         }
 
-        function addCourse(data) {
-            courses.unshift(data);
+        function addCourse(course) {
+            courses.unshift(course);
         }
 
         function getCourses() {
             return courses;
         }
 
-        function editCourse(data) {
-            var index = _.findIndex(courses, { id: data.id });
-            if (index !== -1) courses[index] = data;
+        function editCourse(course) {
+            var index = _.findIndex(courses, { id: course.id });
+            if (index !== -1) courses[index] = course;
         }
 
         function deleteCourse(course) {

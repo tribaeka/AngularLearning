@@ -4,7 +4,7 @@ angular
     .module('courseControl')
     .controller('CourseControlController', function($rootScope, eventsFactory) {
         var $ctrl = this;
-        $ctrl.showFromForAdd = false;
+        $ctrl.showFormForEdit = false;
 
         $ctrl.applyFilter = function() {
             console.log('filter value = ' + $ctrl.inputFilterValue);
@@ -13,7 +13,7 @@ angular
         };
 
         $ctrl.toggleFormForAdd = function() {
-            $ctrl.showFromForAdd = !$ctrl.showFromForAdd;
-            $rootScope.$broadcast(eventsFactory.toggleVisibilityFormForAddEvent, $ctrl.showFromForAdd);
+            $ctrl.showFormForEdit = !$ctrl.showFormForEdit;
+            $rootScope.$broadcast(eventsFactory.toggleVisibilityFormForAddEvent, $ctrl.showFormForEdit);
         };
     });

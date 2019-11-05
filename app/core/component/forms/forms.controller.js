@@ -6,8 +6,8 @@ angular
         var $ctrl = this;
         $ctrl.showFormForEdit = false;
 
-        $rootScope.$on(eventsFactory.toggleVisibilityFormForAddEvent, function(event, data) {
-            $ctrl.showFromForAdd = data;
+        $rootScope.$on(eventsFactory.toggleVisibilityFormForAddEvent, function(event, showFormForAddTrigger) {
+            $ctrl.showFormForAdd = showFormForAddTrigger;
         });
 
         $ctrl.addCourse = function() {
@@ -21,11 +21,11 @@ angular
             $ctrl.courseTitle = '';
             $ctrl.courseDescription = '';
             $ctrl.courseDuration = '';
-            $ctrl.showFromForAdd = !$ctrl.showFromForAdd;
+            $ctrl.showFormForAdd = !$ctrl.showFormForAdd;
         };
 
-        $rootScope.$on(eventsFactory.courseExchangeWithEditForm, function(event, data) {
-            $ctrl.toEditCourse = data;
+        $rootScope.$on(eventsFactory.courseExchangeWithEditForm, function(event, course) {
+            $ctrl.toEditCourse = course;
             $ctrl.showFormForEdit = !$ctrl.showFormForEdit;
         });
 

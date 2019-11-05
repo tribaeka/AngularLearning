@@ -21,8 +21,8 @@ angular
             $ctrl.coursePullSize += 4;
         };
 
-        $rootScope.$on(eventsFactory.sendFiltersInputValueToCoursesFilterEvent, function(event, data) {
-            $ctrl.filterValue = data;
+        $rootScope.$on(eventsFactory.sendFiltersInputValueToCoursesFilterEvent, function(event, filterValue) {
+            $ctrl.filterValue = filterValue;
         });
 
         $ctrl.pushCourseToEditForm = function(course) {
