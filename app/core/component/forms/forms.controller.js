@@ -3,41 +3,36 @@
 angular
     .module('forms')
     .controller('formsController', function($rootScope, courseService, eventsFactory) {
-        // eslint-disable-next-line consistent-this,no-invalid-this
         var $ctrl = this;
+        $ctrl.showFormForEdit = false;
 
-        $rootScope.$on(eventsFactory.toggleVisibilityFromForAddEvent, function(event, data) {
-            $ctrl.showFromForAdd = data;
+        $rootScope.$on(eventsFactory.toggleVisibilityFormForAddEvent, function(event, showFormForAddTrigger) {
+            $ctrl.showFormForAdd = showFormForAddTrigger;
         });
 
         $ctrl.addCourse = function() {
             var course = {
+                id: courseService.generateNewId(),
                 title: $ctrl.courseTitle,
                 description: $ctrl.courseDescription,
                 duration: $ctrl.courseDuration,
-                uploadDate: new Date().toISOString()
+                creationDate: new Date().toISOString()
             };
+            console.log(course);
             courseService.addCourse(course);
             $ctrl.courseTitle = '';
             $ctrl.courseDescription = '';
             $ctrl.courseDuration = '';
-            $ctrl.showFromForAdd = !$ctrl.showFromForAdd;
+            $ctrl.showFormForAdd = !$ctrl.showFormForAdd;
         };
 
-        $rootScope.$on(eventsFactory.pushCourseToEditFormEvent, function(event, data) {
-            var course = {
-                title: data.title,
-                description: data.description,
-                uploadDate: data.uploadDate,
-                duration: data.duration,
-                selectedCourse: data
-            };
+        $rootScope.$on(eventsFactory.courseExchangeWithEditForm, function(event, course) {
             $ctrl.toEditCourse = course;
-            $ctrl.showFromForEdit = true;
+            $ctrl.showFormForEdit = !$ctrl.showFormForEdit;
         });
 
         $ctrl.editCourse = function() {
             courseService.editCourse($ctrl.toEditCourse);
-            $ctrl.showFromForEdit = !$ctrl.showFromForEdit;
+            $ctrl.showFormForEdit = !$ctrl.showFormForEdit;
         };
     });

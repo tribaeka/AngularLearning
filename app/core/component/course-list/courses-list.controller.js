@@ -3,7 +3,6 @@
 angular
     .module('courseList')
     .controller('CourseListController', function($rootScope, courseService, eventsFactory) {
-        // eslint-disable-next-line consistent-this,no-invalid-this
         var $ctrl = this;
         $ctrl.coursesIsLoaded = !!$ctrl.courses;
 
@@ -22,16 +21,23 @@ angular
             $ctrl.coursePullSize += 4;
         };
 
-        $rootScope.$on(eventsFactory.sendFiltersInputValueToCoursesFilterEvent, function(event, data) {
-            $ctrl.filterValue = data;
+        $rootScope.$on(eventsFactory.sendFiltersInputValueToCoursesFilterEvent, function(event, filterValue) {
+            $ctrl.filterValue = filterValue;
         });
 
         $ctrl.pushCourseToEditForm = function(course) {
-            $rootScope.$broadcast(eventsFactory.pushCourseToEditFormEvent, course);
+            $rootScope.$broadcast(eventsFactory.courseExchangeWithEditForm, course);
         };
 
         $ctrl.deleteCourse = function(course) {
             courseService.deleteCourse(course);
         };
 
+        $ctrl.isTopRated = function(course) {
+            if (course.topRated) return 'top-rated-course';
+        };
+
+        $ctrl.creationDateToTime = function(course) {
+            return -(new Date(course.creationDate).getTime());
+        };
     });
