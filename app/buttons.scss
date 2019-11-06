@@ -1,14 +1,15 @@
 @import "mixins";
 @import "colors";
 
-.btn-logoff {
+.btn-logoff-login {
   @include basicButton;
   @include coloredButton($blueColor, white);
 }
 
-.btn-logoff:hover {
+.btn-logoff-login:hover {
   @include basicButton;
   @include coloredButton(white, $blueColor);
+  cursor: default;
 }
 
 .btn-info {

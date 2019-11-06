@@ -20,12 +20,18 @@ angular
             return courses;
         }
 
-        function editCourse(course) {
+        function getCourseById(id) {
+            if (_.isNumber(id)) id = id.toString();
+            
+            return _.find(courses, { id: id });
+        }
+
+        function updateCourse(course) {
             var index = _.findIndex(courses, { id: course.id });
             if (index !== -1) courses[index] = course;
         }
 
-        function deleteCourse(course) {
+        function removeCourse(course) {
             var index = courses.indexOf(course);
             if (index !== -1) courses.splice(index, 1);
         }
@@ -38,8 +44,9 @@ angular
             loadCourses: loadCourses,
             getCourses: getCourses,
             addCourse: addCourse,
-            editCourse: editCourse,
-            deleteCourse: deleteCourse,
-            generateNewId: generateNewId
+            editCourse: updateCourse,
+            deleteCourse: removeCourse,
+            generateNewId: generateNewId,
+            getCourseById: getCourseById
         };
     } ]);

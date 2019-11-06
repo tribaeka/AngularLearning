@@ -30,7 +30,10 @@ angular
         };
 
         $ctrl.deleteCourse = function(course) {
-            courseService.deleteCourse(course);
+            // eslint-disable-next-line no-alert
+            if (confirm('Do you really want to delete this course?')) {
+                courseService.deleteCourse(course);
+            }
         };
 
         $ctrl.isTopRated = function(course) {

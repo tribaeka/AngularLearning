@@ -16,9 +16,9 @@ angular
             console.log('on changes');
         };
 
-        userService.loadUser().then(function(userData) {
-            $ctrl.user = userData;
-        });
+        // userService.loadUser().then(function(userData) {
+        //     $ctrl.user = userData;
+        // });
 
         $ctrl.getFullName = userService.getFullName;
     });

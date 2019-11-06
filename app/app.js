@@ -1,14 +1,12 @@
 'use strict';
 angular.module('app', [
     'ngRoute',
-    'appHeader',
-    'breadcrumbs',
-    'courseControl',
-    'forms',
-    'courseList',
-    'appFooter'
+    'core'
 ]).config(function($routeProvider) {
     $routeProvider
+        .when('/login', {
+            templateUrl: 'core/component/course-list/course-list.template.html'
+        })
         .otherwise('/', {
             templateUrl: 'index.html'
         });
