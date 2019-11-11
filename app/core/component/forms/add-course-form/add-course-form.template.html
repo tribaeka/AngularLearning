@@ -1,0 +1,38 @@
+<div class="form-wrapper"
+     ng-show="$ctrl.showFormForAdd">
+    <h4 class="form-title">Add Course</h4>
+    <form class="form-body"
+          ng-submit="$ctrl.addCourse()">
+        <label class="form-label"
+               for="addCourseTitleInput">
+            Title
+        </label>
+        <input type="text"
+               class="form-input"
+               id="addCourseTitleInput"
+               placeholder="Enter title"
+               ng-model="$ctrl.courseTitle">
+        <label class="form-label"
+               for="addCourseDescriptionInput">
+            Description
+        </label>
+        <input type="text"
+               class="form-input"
+               id="addCourseDescriptionInput"
+               placeholder="Enter description"
+               ng-model="$ctrl.courseDescription">
+        <label class="form-label"
+               for="addCourseDurationInput">
+            Duration in min
+        </label>
+        <input type="text"
+               class="form-input"
+               id="addCourseDurationInput"
+               placeholder="Enter duration"
+               ng-model="$ctrl.courseDuration">
+        <button type="submit"
+                class="btn form-button">
+            Add
+        </button>
+    </form>
+</div>

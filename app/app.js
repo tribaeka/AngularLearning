@@ -5,9 +5,10 @@ angular.module('app', [
 ]).config(function($routeProvider) {
     $routeProvider
         .when('/login', {
-            templateUrl: 'core/component/course-list/course-list.template.html'
+            templateUrl: 'core/page/login/login-page.template.html'
         })
-        .otherwise('/', {
-            templateUrl: 'index.html'
-        });
+        .when('/', {
+            templateUrl: 'core/page/home/home-page.tpl.html'
+        })
+        .otherwise({ redirectTo: '/' });
 });

@@ -1,10 +1,9 @@
 'use strict';
 
 angular
-    .module('forms')
-    .controller('formsController', function($rootScope, courseService, eventsFactory) {
+    .module('addCourseForm')
+    .controller('AddCourseFormController', function($rootScope, courseService, eventsFactory) {
         var $ctrl = this;
-        $ctrl.showFormForEdit = false;
 
         $rootScope.$on(eventsFactory.toggleVisibilityFormForAddEvent, function(event, showFormForAddTrigger) {
             $ctrl.showFormForAdd = showFormForAddTrigger;
@@ -24,15 +23,5 @@ angular
             $ctrl.courseDescription = '';
             $ctrl.courseDuration = '';
             $ctrl.showFormForAdd = !$ctrl.showFormForAdd;
-        };
-
-        $rootScope.$on(eventsFactory.courseExchangeWithEditForm, function(event, course) {
-            $ctrl.toEditCourse = course;
-            $ctrl.showFormForEdit = !$ctrl.showFormForEdit;
-        });
-
-        $ctrl.editCourse = function() {
-            courseService.editCourse($ctrl.toEditCourse);
-            $ctrl.showFormForEdit = !$ctrl.showFormForEdit;
         };
     });

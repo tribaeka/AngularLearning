@@ -8,21 +8,22 @@
                href="#">Logo</a>
         </li>
         <li class="nav-item"
-            ng-if="$ctrl.user">
+            ng-if="$ctrl.getUser()">
             <a class="nav-item-elem"
                href="#">
-                {{::$ctrl.getFullName($ctrl.user)}}
+                {{::$ctrl.getFullName()}}
             </a>
             <button class="btn btn-logoff-login"
-                    type="button">
+                    type="button"
+                    ng-click="$ctrl.logout()">
                 Log off
             </button>
         </li>
         <li class="nav-item"
-            ng-if="!$ctrl.user">
+            ng-if="!$ctrl.getUser()">
             <span class="nav-item-elem">Guest</span>
             <a class="btn btn-logoff-login"
-                    type="button" ng-href="/login">
+                    type="button" ng-href="/index.html#!/login">
                 Log in
             </a>
         </li>

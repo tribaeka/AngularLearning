@@ -27,7 +27,7 @@
   margin-right: 7rem;
 }
 
-.btn-add-edit {
+.form-button {
   @include basicButton;
   @include coloredButton($blueColor, white);
 }

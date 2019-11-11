@@ -1,3 +1,7 @@
 'use strict';
 
-angular.module('forms', ['core']);
+angular.module('forms', [
+    'addCourseForm',
+    'editCourseForm',
+    'loginForm'
+]);

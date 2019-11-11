@@ -1,0 +1,39 @@
+<div class="form-wrapper"
+     id="login-form">
+    <h2 class="form-title">Edit Course</h2>
+    <form class="form-body"
+          ng-submit="$ctrl.login()">
+        <label class="form-label"
+               for="loginPageEmailInput">
+            E-mail:
+        </label>
+        <br>
+        <input type="email"
+               class="form-input"
+               id="loginPageEmailInput"
+               placeholder="Enter email"
+               ng-model="$ctrl.loginFormEmail">
+        <br>
+        <label class="form-label"
+               for="loginPagePasswordInput">
+            Password:
+        </label>
+        <br>
+        <input type="password"
+               class="form-input"
+               id="loginPagePasswordInput"
+               placeholder="Enter password"
+               ng-model="$ctrl.loginFormPassword">
+        <div class="flex-justify-between form-footer">
+            <a href="#">Forgot password?</a>
+            <button type="submit"
+                    class="btn form-button">
+                Login
+            </button>
+        </div>
+        <div ng-if="$ctrl.isVisibleError"
+             class="error-frame">
+            Error: bad email or password!
+        </div>
+    </form>
+</div>

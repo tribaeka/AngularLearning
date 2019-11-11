@@ -2,7 +2,6 @@
 
 angular.module('core', [
     'course',
-    'user',
     'events',
     'stateBy',
     'durationFromMinutes',
@@ -12,6 +11,5 @@ angular.module('core', [
     'courseControl',
     'forms',
     'courseList',
-    'appFooter',
-    'loginPage'
+    'appFooter'
 ]);

@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module('appHeader')
-    .controller('AppHeaderController', function($scope, userService) {
+    .controller('AppHeaderController', function($scope, authService) {
         var $ctrl = this;
 
         $ctrl.$onInit = function() {
@@ -16,9 +16,7 @@ angular
             console.log('on changes');
         };
 
-        // userService.loadUser().then(function(userData) {
-        //     $ctrl.user = userData;
-        // });
-
-        $ctrl.getFullName = userService.getFullName;
+        $ctrl.getUser = authService.getCurrentUser;
+        $ctrl.logout = authService.logout;
+        $ctrl.getFullName = authService.getFullName;
     });
