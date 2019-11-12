@@ -13,6 +13,6 @@ angular
 
         $ctrl.editCourse = function() {
             courseService.editCourse($ctrl.toEditCourse);
-            $ctrl.showFormForEdit = !$ctrl.showFormForEdit;
+            $ctrl.showFormForEdit = false;
         };
     });

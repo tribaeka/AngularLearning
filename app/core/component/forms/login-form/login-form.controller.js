@@ -7,7 +7,7 @@ angular
         $ctrl.isVisibleError = false;
 
         $ctrl.login = function() {
-            var isSuccessLogin = authService.loginByEmailAndPassword($ctrl.loginFormEmail, $ctrl.loginFormPassword);
-            $ctrl.isVisibleError = !isSuccessLogin;
+            var isSuccessfulLogin = authService.loginByEmailAndPassword($ctrl.loginFormEmail, $ctrl.loginFormPassword);
+            $ctrl.isErrorVisible = !isSuccessfulLogin;
         };
     });

@@ -13,9 +13,13 @@ angular
                     users = usersData.data;
                 });
         }
+
         loadUsersList();
 
         function loginByEmailAndPassword(email, password) {
+            if (_.isEmpty(email) || _.isEmpty(password)) {
+                return false;
+            }
             for (var i = 0; i < users.length; i++) {
                 if (users[i].email === email && users[i].password === password) {
                     currentUser = users[i];
@@ -33,8 +37,8 @@ angular
             return currentUser;
         }
 
-        function currentUserIsExist() {
-            return !currentUser;
+        function isCurrentUserExists() {
+            return !!currentUser;
         }
 
         function getFullName() {
@@ -53,7 +57,7 @@ angular
             loginByEmailAndPassword: loginByEmailAndPassword,
             getCurrentUser: getCurrentUser,
             getFullName: getFullName,
-            isAuthenticated: currentUserIsExist,
+            isAuthenticated: isCurrentUserExists,
             logout: logout,
             getUserInfo: getUserInfo
         };
