@@ -12,11 +12,11 @@ angular
                 });
         }
 
-        function addCourse(course) {
+        function createCourse(course) {
             courses.unshift(course);
         }
 
-        function getCourses() {
+        function getList() {
             return courses;
         }
 
@@ -42,8 +42,8 @@ angular
 
         return {
             loadCourses: loadCourses,
-            getCourses: getCourses,
-            addCourse: addCourse,
+            getCourses: getList,
+            addCourse: createCourse,
             editCourse: updateCourse,
             deleteCourse: removeCourse,
             generateNewId: generateNewId,
