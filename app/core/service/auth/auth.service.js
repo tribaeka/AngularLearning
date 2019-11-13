@@ -2,9 +2,10 @@
 
 angular
     .module('auth')
-    .service('authService', [ '$http', '$location', function($http, $location) {
-        var currentUser;
+    .service('authService', [ '$http', '$location', '$window', function($http, $location, $window) {
         var users;
+        var localStorage = $window.localStorage;
+        var userKey = 'user';
 
         function loadUsersList() {
             return $http
@@ -22,7 +23,7 @@ angular
             }
             for (var i = 0; i < users.length; i++) {
                 if (users[i].email === email && users[i].password === password) {
-                    currentUser = users[i];
+                    localStorage.setItem(userKey, JSON.stringify(users[i]));
                     console.log('logged in successfully');
                     $location.path('/');
 
@@ -33,31 +34,26 @@ angular
             return false;
         }
 
-        function getCurrentUser() {
-            return currentUser;
+        function getUser() {
+            return JSON.parse(localStorage.getItem(userKey));
         }
 
-        function isCurrentUserExists() {
-            return !!currentUser;
-        }
-
-        function getFullName() {
-            return currentUser.firstName + ' ' + currentUser.lastName;
+        function isAuthenticated() {
+            return getUser() !== null;
         }
 
         function getUserInfo() {
-            return currentUser.login;
+            return getUser().login;
         }
 
         function logout() {
-            currentUser = undefined;
+            localStorage.removeItem(userKey);
         }
 
         return {
             loginByEmailAndPassword: loginByEmailAndPassword,
-            getCurrentUser: getCurrentUser,
-            getFullName: getFullName,
-            isAuthenticated: isCurrentUserExists,
+            getUser: getUser,
+            isAuthenticated: isAuthenticated,
             logout: logout,
             getUserInfo: getUserInfo
         };

@@ -16,7 +16,7 @@ angular
             console.log('on changes');
         };
 
-        $ctrl.getUser = authService.getCurrentUser;
+        $ctrl.isAuthenticated = authService.isAuthenticated;
         $ctrl.logout = authService.logout;
-        $ctrl.getFullName = authService.getFullName;
+        $ctrl.getUserInfo = authService.getUserInfo;
     });

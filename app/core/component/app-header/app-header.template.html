@@ -8,10 +8,10 @@
                href="#">Logo</a>
         </li>
         <li class="nav-item"
-            ng-if="$ctrl.getUser()">
+            ng-if="$ctrl.isAuthenticated()">
             <a class="nav-item-elem"
                href="#">
-                {{::$ctrl.getFullName()}}
+                {{::$ctrl.getUserInfo()}}
             </a>
             <button class="btn btn-logoff-login"
                     type="button"
@@ -20,7 +20,7 @@
             </button>
         </li>
         <li class="nav-item"
-            ng-if="!$ctrl.getUser()">
+            ng-if="!$ctrl.isAuthenticated()">
             <span class="nav-item-elem">Guest</span>
             <a class="btn btn-logoff-login"
                     type="button" ng-href="/index.html#!/login">

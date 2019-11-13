@@ -8,6 +8,7 @@ angular
 
         $ctrl.login = function() {
             var isSuccessfulLogin = authService.loginByEmailAndPassword($ctrl.loginFormEmail, $ctrl.loginFormPassword);
+            console.log(authService.getUser());
             $ctrl.isErrorVisible = !isSuccessfulLogin;
         };
     });
