@@ -5,11 +5,11 @@ angular
     .controller('AddCourseFormController', function($rootScope, courseService, eventsFactory) {
         var $ctrl = this;
 
-        $rootScope.$on(eventsFactory.toggleVisibilityFormForAddEvent, function(event, showFormForAddTrigger) {
-            $ctrl.showFormForAdd = showFormForAddTrigger;
+        $rootScope.$on(eventsFactory.toggleVisibilityFormForAddEvent, function() {
+            $ctrl.showFormForAdd = true;
         });
 
-        $rootScope.$on(eventsFactory.courseExchangeWithEditForm, function(event, course) {
+        $rootScope.$on(eventsFactory.courseExchangeWithEditForm, function() {
             $ctrl.showFormForAdd = false;
         });
 
@@ -21,10 +21,18 @@ angular
                 duration: $ctrl.courseDuration,
                 creationDate: new Date().toISOString()
             };
-            courseService.addCourse(course);
-            $ctrl.courseTitle = '';
-            $ctrl.courseDescription = '';
-            $ctrl.courseDuration = '';
-            $ctrl.showFormForAdd = !$ctrl.showFormForAdd;
+            if (course.duration !== undefined
+                && course.title !== undefined
+                && course.description !== undefined) {
+                courseService.addCourse(course);
+            }
+            resetForm();
         };
+
+        function resetForm() {
+            $ctrl.courseTitle = undefined;
+            $ctrl.courseDescription = undefined;
+            $ctrl.courseDuration = undefined;
+            $ctrl.showFormForAdd = false;
+        }
     });
