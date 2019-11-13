@@ -21,7 +21,6 @@ angular
                 duration: $ctrl.courseDuration,
                 creationDate: new Date().toISOString()
             };
-            console.log(course);
             courseService.addCourse(course);
             $ctrl.courseTitle = '';
             $ctrl.courseDescription = '';
