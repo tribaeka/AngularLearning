@@ -4,7 +4,6 @@ angular
     .module('courseControl')
     .controller('CourseControlController', function($rootScope, eventsFactory) {
         var $ctrl = this;
-        $ctrl.showFormForEdit = false;
 
         $ctrl.applyFilter = function() {
             console.log('filter value = ' + $ctrl.inputFilterValue);

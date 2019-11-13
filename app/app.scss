@@ -2,18 +2,21 @@
 @import "colors";
 @import "buttons";
 
+html, body {
+  height: 100%;
+}
+
 body {
   background: $whiteColor;
-  height: 100%;
   margin: 0;
   padding: 0;
-  border: 0.1rem solid $grayLightColor;
-  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
   font-family: 'Roboto', sans-serif;
 }
 
 .container {
-  min-height: calc(100vh - 75px);
+  flex: 1 0 auto;
 
   .view-container {
     width: inherit;

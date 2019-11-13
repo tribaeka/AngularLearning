@@ -7,12 +7,17 @@ angular
         $ctrl.showFormForEdit = false;
 
         $rootScope.$on(eventsFactory.courseExchangeWithEditForm, function(event, course) {
+            $ctrl.showFormForEdit = true;
             $ctrl.toEditCourse = course;
-            $ctrl.showFormForEdit = !$ctrl.showFormForEdit;
+        });
+
+        $rootScope.$on(eventsFactory.toggleVisibilityFormForAddEvent, function(event, showFormForAddTrigger) {
+            $ctrl.showFormForEdit = false;
         });
 
         $ctrl.editCourse = function() {
             courseService.editCourse($ctrl.toEditCourse);
+            $ctrl.toEditCourse = undefined;
             $ctrl.showFormForEdit = false;
         };
     });

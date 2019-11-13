@@ -18,20 +18,24 @@ angular
         loadUsersList();
 
         function loginByEmailAndPassword(email, password) {
+            var user = getUserByEmailAndPassword(email, password);
+            if (user !== undefined) {
+                setUser(user);
+                console.log('logged in successfully');
+                $location.path('/');
+            }
+        }
+
+        function getUserByEmailAndPassword(email, password) {
             if (_.isEmpty(email) || _.isEmpty(password)) {
-                return false;
-            }
-            for (var i = 0; i < users.length; i++) {
-                if (users[i].email === email && users[i].password === password) {
-                    localStorage.setItem(userKey, JSON.stringify(users[i]));
-                    console.log('logged in successfully');
-                    $location.path('/');
-
-                    return true;
-                }
+                return undefined;
             }
 
-            return false;
+            return _.find(users, { email: email, password: password });
+        }
+
+        function setUser(user) {
+            localStorage.setItem(userKey, JSON.stringify(user));
         }
 
         function getUser() {
@@ -48,6 +52,7 @@ angular
 
         function logout() {
             localStorage.removeItem(userKey);
+            $location.path('/login');
         }
 
         return {

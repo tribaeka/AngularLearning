@@ -29,16 +29,17 @@
 
 .login-form-wrapper {
   margin: auto;
+  padding-top: 15%;
   width: 50%;
-  border-radius: 0.5rem;
-  border: 0.1rem solid $grayLightColor;
-  background: white;
 
   .form-input {
     @include loginFormInput(98%, 0.5rem);
   }
 
   .form-body {
+    border-radius: 0.5rem;
+    border: 0.1rem solid $grayLightColor;
+    background: white;
     margin: 0 2rem;
     padding: 1rem;
   }

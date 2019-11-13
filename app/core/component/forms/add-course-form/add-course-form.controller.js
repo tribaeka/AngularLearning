@@ -9,6 +9,10 @@ angular
             $ctrl.showFormForAdd = showFormForAddTrigger;
         });
 
+        $rootScope.$on(eventsFactory.courseExchangeWithEditForm, function(event, course) {
+            $ctrl.showFormForAdd = false;
+        });
+
         $ctrl.addCourse = function() {
             var course = {
                 id: courseService.generateNewId(),
