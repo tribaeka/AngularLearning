@@ -14,7 +14,7 @@
 
   .form-body {
     .form-input {
-      @include defaultFormInput(100%);
+      @include defaultFormInput(100%, 0.5rem);
     }
   }
 }
@@ -35,16 +35,15 @@
   background: white;
 
   .form-input {
-    @include defaultFormInput(95%);
+    @include loginFormInput(98%, 0.5rem);
   }
 
   .form-body {
-    margin-left: 2rem;
+    margin: 0 2rem;
     padding: 1rem;
   }
 
   .form-button {
-    margin-right: 3%;
   }
 }
 

@@ -2,10 +2,16 @@
     <h2 class="form-title">Edit Course</h2>
     <form class="form-body"
           ng-submit="$ctrl.login()">
-        <label class="form-label"
-               for="loginPageEmailInput">
-            E-mail:
-        </label>
+        <div class="flex-justify-between">
+            <label class="form-label"
+                   for="loginPageEmailInput">
+                E-mail:
+            </label>
+            <label class="form-label"
+                   for="loginPageEmailInput">
+                *required
+            </label>
+        </div>
         <br>
         <input type="email"
                class="form-input"
@@ -13,10 +19,16 @@
                placeholder="Enter email"
                ng-model="$ctrl.loginFormEmail">
         <br>
-        <label class="form-label"
-               for="loginPagePasswordInput">
-            Password:
-        </label>
+        <div class="flex-justify-between">
+            <label class="form-label"
+                   for="loginPagePasswordInput">
+                Password:
+            </label>
+            <label class="form-label"
+                   for="loginPagePasswordInput">
+                *required
+            </label>
+        </div>
         <br>
         <input type="password"
                class="form-input"
