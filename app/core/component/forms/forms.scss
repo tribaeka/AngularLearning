@@ -1,40 +1,10 @@
-@import "../../../colors";
-@import "../../../mixins";
-
-.form-title {
-  margin-left: 2rem;
-}
+@import "../../global-styles/colors";
+@import "../../global-styles/inputs";
 
 .form-wrapper {
-  border-radius: 0.25rem;
-  border: 0.1rem solid $grayLightColor;
-  background: white;
-  margin: 1rem;
-  padding: 1rem;
-
-  .form-body {
-    .form-input {
-      @include defaultFormInput(100%, 0.5rem);
-    }
-  }
-}
-
-.form-label {
-  padding-left: 0.25rem;
-}
-
-.form-input, .form-label {
-  font-size: 1rem;
-}
-
-.login-form-wrapper {
   margin: auto;
   padding-top: 15%;
   width: 50%;
-
-  .form-input {
-    @include loginFormInput(98%, 0.5rem);
-  }
 
   .form-body {
     border-radius: 0.5rem;
@@ -44,7 +14,16 @@
     padding: 1rem;
   }
 
-  .form-button {
+  .form-title {
+    margin-left: 2rem;
+  }
+
+  .form-label {
+    padding-left: 0.25rem;
+  }
+
+  .form-input, .form-label {
+    font-size: 1rem;
   }
 }
 

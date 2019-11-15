@@ -12,7 +12,7 @@ angular
                 });
         }
 
-        function createCourse(course) {
+        function addCourse(course) {
             courses.unshift(course);
         }
 
@@ -43,7 +43,7 @@ angular
         return {
             loadCourses: loadCourses,
             getCourses: getList,
-            addCourse: createCourse,
+            addCourse: addCourse,
             editCourse: updateCourse,
             deleteCourse: removeCourse,
             generateNewId: generateNewId,

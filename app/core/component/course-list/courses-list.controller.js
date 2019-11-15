@@ -2,7 +2,7 @@
 
 angular
     .module('courseList')
-    .controller('CourseListController', function($rootScope, courseService, eventsFactory) {
+    .controller('CourseListController', function($rootScope, $scope, courseService, eventsFactory) {
         var $ctrl = this;
         $ctrl.coursesIsLoaded = !!$ctrl.courses;
 
@@ -30,7 +30,6 @@ angular
         };
 
         $ctrl.deleteCourse = function(course) {
-            // eslint-disable-next-line no-alert
             if (confirm('Do you really want to delete this course?')) {
                 courseService.deleteCourse(course);
             }

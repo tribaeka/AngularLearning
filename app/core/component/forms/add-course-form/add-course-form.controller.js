@@ -2,17 +2,15 @@
 
 angular
     .module('addCourseForm')
-    .controller('AddCourseFormController', function($rootScope, courseService, eventsFactory) {
+    .controller('AddCourseFormController', [ 'courseService', '$location', '$scope', function(courseService, $location) {
         var $ctrl = this;
 
-        $rootScope.$on(eventsFactory.toggleVisibilityFormForAddEvent, function() {
-            $ctrl.showFormForAdd = true;
-        });
-
-        $rootScope.$on(eventsFactory.courseExchangeWithEditForm, function() {
-            $ctrl.showFormForAdd = false;
-        });
-
+        $ctrl.backToHome = function() {
+            $location.path('/');
+        };
+        if (_.isEmpty(courseService.getCourses())) {
+            courseService.loadCourses();
+        }
         $ctrl.addCourse = function() {
             var course = {
                 id: courseService.generateNewId(),
@@ -25,14 +23,7 @@ angular
                 && course.title !== undefined
                 && course.description !== undefined) {
                 courseService.addCourse(course);
+                $ctrl.backToHome();
             }
-            resetForm();
         };
-
-        function resetForm() {
-            $ctrl.courseTitle = undefined;
-            $ctrl.courseDescription = undefined;
-            $ctrl.courseDuration = undefined;
-            $ctrl.showFormForAdd = false;
-        }
-    });
+    } ] );
