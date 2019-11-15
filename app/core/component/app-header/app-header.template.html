@@ -7,16 +7,25 @@
             <a class="logo-title nav-item-elem"
                href="#">Logo</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item"
+            ng-if="$ctrl.isAuthenticated()">
             <a class="nav-item-elem"
                href="#">
-                {{::$ctrl.getFullName($ctrl.user)}}
+                {{::$ctrl.getUserInfo()}}
             </a>
-            <button class="btn btn-logoff"
-                    id="btn-logoff-pos"
-                    type="button">
+            <button class="btn btn-logoff-login"
+                    type="button"
+                    ng-click="$ctrl.logout()">
                 Log off
             </button>
+        </li>
+        <li class="nav-item"
+            ng-if="!$ctrl.isAuthenticated()">
+            <span class="nav-item-elem">Guest</span>
+            <a class="btn btn-logoff-login"
+                    type="button" ng-href="/index.html#!/login">
+                Log in
+            </a>
         </li>
     </ul>
 </div>

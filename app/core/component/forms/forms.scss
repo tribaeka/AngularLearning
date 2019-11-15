@@ -1,32 +1,53 @@
 @import "../../../colors";
+@import "../../../mixins";
+
+.form-title {
+  margin-left: 2rem;
+}
 
 .form-wrapper {
-  .form-title {
-    margin-left: 2rem;
+  border-radius: 0.25rem;
+  border: 0.1rem solid $grayLightColor;
+  background: white;
+  margin: 1rem;
+  padding: 1rem;
+
+  .form-body {
+    .form-input {
+      @include defaultFormInput(100%, 0.5rem);
+    }
+  }
+}
+
+.form-label {
+  padding-left: 0.25rem;
+}
+
+.form-input, .form-label {
+  font-size: 1rem;
+}
+
+.login-form-wrapper {
+  margin: auto;
+  padding-top: 15%;
+  width: 50%;
+
+  .form-input {
+    @include loginFormInput(98%, 0.5rem);
   }
 
-  .courses-form {
-    background: white;
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 0.25rem;
+  .form-body {
+    border-radius: 0.5rem;
     border: 0.1rem solid $grayLightColor;
-
-    .course-form-input {
-      width: 100%;
-      margin: 0.5rem 0;
-      padding: 0.25rem;
-      height: 1.5rem;
-      border: 0.2rem solid $grayLightColor;
-      border-radius: 0.25rem;
-    }
-
-    .course-form-label {
-      padding-left: 0.25rem;
-    }
-
-    .course-form-input, .course-form-label {
-      font-size: 1rem;
-    }
+    background: white;
+    margin: 0 2rem;
+    padding: 1rem;
   }
+
+  .form-button {
+  }
+}
+
+.error-frame {
+  color: red;
 }

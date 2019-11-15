@@ -1,15 +1,14 @@
 'use strict';
 angular.module('app', [
     'ngRoute',
-    'appHeader',
-    'breadcrumbs',
-    'courseControl',
-    'forms',
-    'courseList',
-    'appFooter'
+    'core'
 ]).config(function($routeProvider) {
     $routeProvider
-        .otherwise('/', {
-            templateUrl: 'index.html'
-        });
+        .when('/login', {
+            templateUrl: 'core/page/login/login-page.template.html'
+        })
+        .when('/', {
+            templateUrl: 'core/page/home/home-page.tpl.html'
+        })
+        .otherwise({ redirectTo: '/' });
 });

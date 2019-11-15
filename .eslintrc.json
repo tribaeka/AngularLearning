@@ -20,7 +20,7 @@
     "no-empty-character-class": "error",
     "no-empty": "error",
     "no-ex-assign": "off",
-    "no-extra-boolean-cast": "error",
+    "no-extra-boolean-cast": "off",
     "no-extra-parens": "off",
     "no-extra-semi": "error",
     "no-func-assign": "off",

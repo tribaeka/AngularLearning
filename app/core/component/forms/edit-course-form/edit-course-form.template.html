@@ -1,0 +1,32 @@
+<div class="form-wrapper"
+     ng-show="$ctrl.showFormForEdit">
+    <h4 class="form-title">Edit Course</h4>
+    <form class="form-body"
+          ng-submit="$ctrl.editCourse()">
+        <label class="form-label"
+               for="editCourseTitleInput">Title</label>
+        <input type="text"
+               class="form-input"
+               id="editCourseTitleInput"
+               placeholder="Enter title"
+               ng-model="$ctrl.toEditCourse.title">
+        <label class="form-label"
+               for="editCourseDescriptionInput">Description</label>
+        <input type="text"
+               class="form-input"
+               id="editCourseDescriptionInput"
+               placeholder="Enter description"
+               ng-model="$ctrl.toEditCourse.description">
+        <label class="form-label"
+               for="editCourseDurationInput">Duration</label>
+        <input type="text"
+               class="form-input"
+               id="editCourseDurationInput"
+               placeholder="Enter description"
+               ng-model="$ctrl.toEditCourse.duration">
+        <button type="submit"
+                class="btn form-button">
+            Edit
+        </button>
+    </form>
+</div>
