@@ -19,7 +19,7 @@ angular
 
         function loginByEmailAndPassword(email, password) {
             var user = getUserByEmailAndPassword(email, password);
-            if (user !== undefined) {
+            if (!!user) {
                 setUser(user);
                 console.log('logged in successfully');
                 $location.path('/');
@@ -43,7 +43,7 @@ angular
         }
 
         function isAuthenticated() {
-            return getUser() !== null;
+            return !!getUser();
         }
 
         function getUserInfo() {
