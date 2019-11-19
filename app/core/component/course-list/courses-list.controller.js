@@ -7,17 +7,24 @@ angular
         $ctrl.coursesIsLoaded = !!$ctrl.courses;
 
         $ctrl.$onInit = function() {
-            courseService.loadCourses()
-                .then(function() {
-                    $ctrl.courses = courseService.getCourses();
-                    $ctrl.coursesIsLoaded = true;
-                });
+            if (_.isEmpty(courseService.getCourses())) {
+                courseService.loadCourses()
+                    .then(function() {
+                        $ctrl.courses = courseService.getCourses();
+                        $ctrl.coursesIsLoaded = true;
+                    });
+            } else {
+                $ctrl.courses = courseService.getCourses();
+                $ctrl.coursesIsLoaded = true;
+            }
+
         };
 
         $ctrl.coursePullSize = 4;
 
         $ctrl.onLoadMoreClick = function() {
             console.log('load more button');
+            $ctrl.courses = courseService.getCourses();
             $ctrl.coursePullSize += 4;
         };
 

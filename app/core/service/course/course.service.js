@@ -37,7 +37,7 @@ angular
         }
 
         function generateNewId() {
-            return _.parseInt(_.maxBy(courses, 'id').id) + 1;
+            return (_.parseInt(_.maxBy(courses, 'id').id) + 1).toString();
         }
 
         return {
