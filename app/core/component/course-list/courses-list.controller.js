@@ -32,10 +32,6 @@ angular
             $ctrl.filterValue = filterValue;
         });
 
-        $ctrl.pushCourseToEditForm = function(course) {
-            $rootScope.$broadcast(eventsFactory.courseExchangeWithEditForm, course);
-        };
-
         $ctrl.deleteCourse = function(course) {
             if (confirm('Do you really want to delete this course?')) {
                 courseService.deleteCourse(course);

@@ -1,24 +1,38 @@
-<div class="form-wrapper"
-     ng-show="$ctrl.showFormForEdit">
-    <h4 class="form-title">Edit Course</h4>
+<div class="form-wrapper">
     <form class="form-body"
           ng-submit="$ctrl.editCourse()">
+        <h2 class="form-title">Edit Course</h2>
         <label class="form-label"
-               for="editCourseTitleInput">Title</label>
+               for="editCourseTitleInput">
+            Title
+        </label>
         <input type="text"
                class="form-input"
                id="editCourseTitleInput"
                placeholder="Enter title"
                ng-model="$ctrl.toEditCourse.title">
         <label class="form-label"
-               for="editCourseDescriptionInput">Description</label>
+               for="editCourseDescriptionInput">
+            Description
+        </label>
         <input type="text"
                class="form-input"
                id="editCourseDescriptionInput"
                placeholder="Enter description"
                ng-model="$ctrl.toEditCourse.description">
         <label class="form-label"
-               for="editCourseDurationInput">Duration</label>
+               for="editCourseDateInput">
+            Date
+        </label>
+        <input type="date"
+               class="form-input"
+               id="editCourseDateInput"
+               placeholder="Enter description"
+               ng-model="$ctrl.courseDate">
+        <label class="form-label"
+               for="editCourseDurationInput">
+            Duration
+        </label>
         <input type="text"
                class="form-input"
                id="editCourseDurationInput"
@@ -27,6 +41,10 @@
         <button type="submit"
                 class="btn form-button">
             Edit
+        </button>
+        <button type="button"
+                class="btn form-button" ng-click="$ctrl.backToHome()">
+            Back
         </button>
     </form>
 </div>

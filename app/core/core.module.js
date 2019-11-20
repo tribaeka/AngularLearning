@@ -6,6 +6,7 @@ angular.module('core', [
     'stateBy',
     'durationFromMinutes',
     'auth',
+    'navigation',
     'appHeader',
     'breadcrumbs',
     'courseControl',
