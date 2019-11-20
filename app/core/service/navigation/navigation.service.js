@@ -7,12 +7,7 @@ angular
             $location.path('/');
         }
 
-        function getUrlParams() {
-            return $location.search();
-        }
-
         return {
-            backToHome: backToHome,
-            getUrlParams: getUrlParams
+            backToHome: backToHome
         };
     } ]);
