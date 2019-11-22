@@ -21,7 +21,9 @@
         </li>
         <li class="nav-item"
             ng-if="!$ctrl.isAuthenticated()">
-            <span class="nav-item-elem">Guest</span>
+            <span class="nav-item-elem">
+                {{guestName}}
+            </span>
             <a class="btn btn-logoff-login"
                     type="button" ng-href="/index.html#!/login">
                 Log in

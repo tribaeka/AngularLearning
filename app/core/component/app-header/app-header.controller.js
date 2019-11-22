@@ -17,6 +17,13 @@ angular
         };
 
         $ctrl.isAuthenticated = authService.isAuthenticated;
-        $ctrl.logout = authService.logout;
+        $ctrl.logout = function() {
+            setTimeout(function() {
+                $scope.$apply(function() {
+                    $scope.guestName = 'Guest';
+                    authService.logout();
+                });
+            }, 0);
+        };
         $ctrl.getUserInfo = authService.getUserInfo;
     });
