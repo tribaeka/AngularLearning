@@ -1,8 +1,7 @@
-<div class="form-wrapper"
-     ng-show="$ctrl.showFormForAdd">
-    <h4 class="form-title">Add Course</h4>
+<div class="form-wrapper">
     <form class="form-body"
           ng-submit="$ctrl.addCourse()">
+        <h2 class="form-title">Add Course</h2>
         <label class="form-label"
                for="addCourseTitleInput">
             Title
@@ -16,11 +15,12 @@
                for="addCourseDescriptionInput">
             Description
         </label>
-        <input type="text"
-               class="form-input"
+        <textarea rows="5"
+               class="from-textarea"
                id="addCourseDescriptionInput"
                placeholder="Enter description"
                ng-model="$ctrl.courseDescription">
+        </textarea>
         <label class="form-label"
                for="addCourseDurationInput">
             Duration in min
@@ -33,6 +33,11 @@
         <button type="submit"
                 class="btn form-button">
             Add
+        </button>
+        <button type="button"
+                class="btn form-button"
+                ng-click="$ctrl.backToHome()">
+            Back
         </button>
     </form>
 </div>

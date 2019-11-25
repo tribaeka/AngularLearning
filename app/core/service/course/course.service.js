@@ -12,7 +12,7 @@ angular
                 });
         }
 
-        function createCourse(course) {
+        function addCourse(course) {
             courses.unshift(course);
         }
 
@@ -37,13 +37,13 @@ angular
         }
 
         function generateNewId() {
-            return _.parseInt(_.maxBy(courses, 'id').id) + 1;
+            return (_.parseInt(_.maxBy(courses, 'id').id) + 1).toString();
         }
 
         return {
             loadCourses: loadCourses,
             getCourses: getList,
-            addCourse: createCourse,
+            addCourse: addCourse,
             editCourse: updateCourse,
             deleteCourse: removeCourse,
             generateNewId: generateNewId,

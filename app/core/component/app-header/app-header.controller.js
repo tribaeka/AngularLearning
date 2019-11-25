@@ -6,6 +6,11 @@ angular
 
         $ctrl.$onInit = function() {
             console.log('on init app-header');
+            setTimeout(function() {
+                $scope.$apply(function() {
+                    $scope.guestName = 'Hello, guest!';
+                });
+            }, 0);
         };
 
         $ctrl.$onDestroy = function() {
@@ -17,6 +22,13 @@ angular
         };
 
         $ctrl.isAuthenticated = authService.isAuthenticated;
-        $ctrl.logout = authService.logout;
+        $ctrl.logout = function() {
+            setTimeout(function() {
+                $scope.$apply(function() {
+                    $scope.guestName = 'Guest';
+                    authService.logout();
+                });
+            }, 0);
+        };
         $ctrl.getUserInfo = authService.getUserInfo;
     });

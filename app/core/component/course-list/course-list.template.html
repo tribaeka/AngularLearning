@@ -25,11 +25,10 @@
                     <p>{{course.description}}</p>
                 </div>
                 <div class="action-bar">
-                    <button type="button"
-                            class="btn btn-edit action-btn"
-                            ng-click="$ctrl.pushCourseToEditForm(course)">
+                    <a href="/index.html#!/editCourse/{{course.id}}"
+                            class="btn btn-edit action-btn">
                         <span>Edit</span>
-                    </button>
+                    </a>
                     <button type="button"
                             class="btn btn-delete action-btn"
                             ng-click="$ctrl.deleteCourse(course)">

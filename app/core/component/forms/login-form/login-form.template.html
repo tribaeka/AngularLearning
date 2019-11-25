@@ -1,8 +1,7 @@
-<div class="login-form-wrapper">
+<div class="form-wrapper">
     <form class="form-body"
           ng-submit="$ctrl.login()">
-        <h2 class="form-title">Edit Course</h2>
-
+        <h2 class="form-title">Login</h2>
         <div class="flex-justify-between">
             <label class="form-label"
                    for="loginPageEmailInput">
@@ -15,10 +14,11 @@
         </div>
         <br>
         <input type="email"
-               class="form-input"
+               class="login-form-input"
                id="loginPageEmailInput"
                placeholder="Enter email"
-               ng-model="$ctrl.loginFormEmail">
+               ng-model="$ctrl.loginFormEmail"
+               required>
         <br>
         <div class="flex-justify-between">
             <label class="form-label"
@@ -32,10 +32,11 @@
         </div>
         <br>
         <input type="password"
-               class="form-input"
+               class="login-form-input"
                id="loginPagePasswordInput"
                placeholder="Enter password"
-               ng-model="$ctrl.loginFormPassword">
+               ng-model="$ctrl.loginFormPassword"
+               required>
         <div class="flex-justify-between form-footer">
             <a href="#">Forgot password?</a>
             <button type="submit"

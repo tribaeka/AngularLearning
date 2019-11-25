@@ -2,22 +2,28 @@
 
 angular
     .module('courseList')
-    .controller('CourseListController', function($rootScope, courseService, eventsFactory) {
+    .controller('CourseListController', function($rootScope, $scope, courseService, eventsFactory) {
         var $ctrl = this;
         $ctrl.coursesIsLoaded = !!$ctrl.courses;
 
         $ctrl.$onInit = function() {
-            courseService.loadCourses()
-                .then(function() {
-                    $ctrl.courses = courseService.getCourses();
-                    $ctrl.coursesIsLoaded = true;
-                });
+            if (_.isEmpty(courseService.getCourses())) {
+                courseService.loadCourses()
+                    .then(function() {
+                        $ctrl.courses = courseService.getCourses();
+                        $ctrl.coursesIsLoaded = true;
+                    });
+            } else {
+                $ctrl.courses = courseService.getCourses();
+                $ctrl.coursesIsLoaded = true;
+            }
         };
 
         $ctrl.coursePullSize = 4;
 
         $ctrl.onLoadMoreClick = function() {
             console.log('load more button');
+            $ctrl.courses = courseService.getCourses();
             $ctrl.coursePullSize += 4;
         };
 
@@ -25,12 +31,7 @@ angular
             $ctrl.filterValue = filterValue;
         });
 
-        $ctrl.pushCourseToEditForm = function(course) {
-            $rootScope.$broadcast(eventsFactory.courseExchangeWithEditForm, course);
-        };
-
         $ctrl.deleteCourse = function(course) {
-            // eslint-disable-next-line no-alert
             if (confirm('Do you really want to delete this course?')) {
                 courseService.deleteCourse(course);
             }

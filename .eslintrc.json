@@ -65,7 +65,7 @@
     "dot-notation": "error",
     "eqeqeq": "error",
     "guard-for-in": "error",
-    "no-alert": "error",
+    "no-alert": "off",
     "no-caller": "error",
     "no-case-declarations": "error",
     "no-div-regex": "off",

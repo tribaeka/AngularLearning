@@ -2,22 +2,23 @@
 
 angular
     .module('editCourseForm')
-    .controller('EditCourseFormController', function($rootScope, courseService, eventsFactory) {
+    .controller('EditCourseFormController', [ 'courseService', 'navigationService', '$routeParams', function(
+        courseService,
+        navigationService,
+        $routeParams
+    ) {
         var $ctrl = this;
-        $ctrl.showFormForEdit = false;
 
-        $rootScope.$on(eventsFactory.courseExchangeWithEditForm, function(event, course) {
-            $ctrl.showFormForEdit = true;
-            $ctrl.toEditCourse = course;
-        });
+        $ctrl.backToHome = navigationService.backToHome;
 
-        $rootScope.$on(eventsFactory.toggleVisibilityFormForAddEvent, function(event, showFormForAddTrigger) {
-            $ctrl.showFormForEdit = false;
-        });
+        $ctrl.$onChanges = function() {
+            $ctrl.toEditCourse = courseService.getCourseById($routeParams.courseId);
+            $ctrl.courseDate = new Date($ctrl.toEditCourse.creationDate);
+        };
 
         $ctrl.editCourse = function() {
+            $ctrl.toEditCourse.creationDate = $ctrl.courseDate.toISOString();
             courseService.editCourse($ctrl.toEditCourse);
-            $ctrl.toEditCourse = undefined;
-            $ctrl.showFormForEdit = false;
+            $ctrl.backToHome();
         };
-    });
+    } ]);

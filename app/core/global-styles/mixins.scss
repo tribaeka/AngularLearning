@@ -18,19 +18,7 @@
   border: 0.2rem solid $grayLightColor;
 }
 
-@mixin defaultFormInput($width, $yMargin) {
-  width: $width;
-  margin: $yMargin 0;
-  padding: 0.25rem;
-  height: 1.5rem;
-  border: 0.2rem solid $grayLightColor;
-  border-radius: 0.25rem;
-}
-
-@mixin loginFormInput($width, $yMargin) {
-  width: $width;
-  margin-top: -$yMargin;
-  margin-bottom: $yMargin;
+@mixin basicInput() {
   padding: 0.25rem;
   height: 1.5rem;
   border: 0.2rem solid $grayLightColor;

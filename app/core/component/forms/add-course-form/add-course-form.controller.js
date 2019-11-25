@@ -2,16 +2,10 @@
 
 angular
     .module('addCourseForm')
-    .controller('AddCourseFormController', function($rootScope, courseService, eventsFactory) {
+    .controller('AddCourseFormController', [ 'courseService', 'navigationService', function(courseService, navigationService) {
         var $ctrl = this;
 
-        $rootScope.$on(eventsFactory.toggleVisibilityFormForAddEvent, function() {
-            $ctrl.showFormForAdd = true;
-        });
-
-        $rootScope.$on(eventsFactory.courseExchangeWithEditForm, function() {
-            $ctrl.showFormForAdd = false;
-        });
+        $ctrl.backToHome = navigationService.backToHome;
 
         $ctrl.addCourse = function() {
             var course = {
@@ -21,18 +15,10 @@ angular
                 duration: $ctrl.courseDuration,
                 creationDate: new Date().toISOString()
             };
-            if (course.duration !== undefined
-                && course.title !== undefined
-                && course.description !== undefined) {
-                courseService.addCourse(course);
-            }
-            resetForm();
-        };
 
-        function resetForm() {
-            $ctrl.courseTitle = undefined;
-            $ctrl.courseDescription = undefined;
-            $ctrl.courseDuration = undefined;
-            $ctrl.showFormForAdd = false;
-        }
-    });
+            if (!!course.duration && !!course.title && !!course.description) {
+                courseService.addCourse(course);
+                $ctrl.backToHome();
+            }
+        };
+    } ] );
