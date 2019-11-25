@@ -22,7 +22,7 @@ angular
             if (!!user) {
                 setUser(user);
                 console.log('logged in successfully');
-                $location.path('/');
+                $location.path('/courses');
             }
         }
 
