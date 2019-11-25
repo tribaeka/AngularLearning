@@ -17,3 +17,10 @@
 @mixin grayBorder() {
   border: 0.2rem solid $grayLightColor;
 }
+
+@mixin basicInput() {
+  padding: 0.25rem;
+  height: 1.5rem;
+  border: 0.2rem solid $grayLightColor;
+  border-radius: 0.25rem;
+}

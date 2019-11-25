@@ -17,7 +17,6 @@ angular
                 $ctrl.courses = courseService.getCourses();
                 $ctrl.coursesIsLoaded = true;
             }
-
         };
 
         $ctrl.coursePullSize = 4;

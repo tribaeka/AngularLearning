@@ -2,7 +2,7 @@
 
 angular
     .module('addCourseForm')
-    .controller('AddCourseFormController', [ 'courseService', 'navigationService', '$scope', function(courseService, navigationService) {
+    .controller('AddCourseFormController', [ 'courseService', 'navigationService', function(courseService, navigationService) {
         var $ctrl = this;
 
         $ctrl.backToHome = navigationService.backToHome;
@@ -16,9 +16,7 @@ angular
                 creationDate: new Date().toISOString()
             };
 
-            if (course.duration !== undefined
-                && course.title !== undefined
-                && course.description !== undefined) {
+            if (!!course.duration && !!course.title && !!course.description) {
                 courseService.addCourse(course);
                 $ctrl.backToHome();
             }
