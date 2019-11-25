@@ -4,7 +4,7 @@ angular
     .module('navigation')
     .service('navigationService', [ '$location', function($location) {
         function backToHome() {
-            $location.path('/');
+            $location.path('/courses');
         }
 
         return {

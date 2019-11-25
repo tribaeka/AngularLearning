@@ -7,14 +7,14 @@ angular.module('app', [
         .when('/login', {
             templateUrl: 'core/page/single-form/login/login-page.template.html'
         })
-        .when('/addCourse', {
+        .when('/courses/new', {
             templateUrl: 'core/page/single-form/add-course/add-course-page.template.html'
         })
-        .when('/editCourse/:courseId', {
+        .when('/courses/:courseId', {
             templateUrl: 'core/page/single-form/edit-course/edit-course-page.template.html'
         })
-        .when('/', {
-            templateUrl: 'core/page/home/home-page.tpl.html'
+        .when('/courses', {
+            templateUrl: 'core/page/courses/courses-page.template.html'
         })
-        .otherwise({ redirectTo: '/' });
+        .otherwise({ template: '<error404></error404>' });
 });

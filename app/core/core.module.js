@@ -10,6 +10,7 @@ angular.module('core', [
     'appHeader',
     'breadcrumbs',
     'courseControl',
+    'errors',
     'forms',
     'courseList',
     'appFooter'

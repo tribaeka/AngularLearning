@@ -1,0 +1,17 @@
+.error-container {
+  background: #E6E9E8;
+  width: inherit;
+  height: 100%;
+
+  .error-image {
+    margin: 5rem 55rem;
+  }
+
+  .error-description {
+    margin-left: 55rem;
+
+    .error-back-link {
+      margin-left: 7rem;
+    }
+  }
+}
