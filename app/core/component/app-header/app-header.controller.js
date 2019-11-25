@@ -6,6 +6,11 @@ angular
 
         $ctrl.$onInit = function() {
             console.log('on init app-header');
+            setTimeout(function() {
+                $scope.$apply(function() {
+                    $scope.guestName = 'Hello, guest!';
+                });
+            }, 0);
         };
 
         $ctrl.$onDestroy = function() {
