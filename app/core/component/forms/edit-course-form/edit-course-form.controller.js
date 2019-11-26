@@ -14,6 +14,7 @@ angular
         $ctrl.$onChanges = function() {
             $ctrl.toEditCourse = courseService.getCourseById($state.params.courseId);
             $ctrl.courseDate = new Date($ctrl.toEditCourse.creationDate);
+
         };
 
         $ctrl.editCourse = function() {

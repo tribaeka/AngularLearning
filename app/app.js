@@ -7,15 +7,24 @@ angular.module('app', [
     $stateProvider
         .state('courses', {
             url: '/courses',
-            templateUrl: 'core/page/courses/courses-page.template.html'
+            templateUrl: 'core/page/courses/courses-page.template.html',
+            data: {
+                displayName: 'Courses'
+            }
         })
         .state('addCourse', {
             url: '/courses/new',
-            templateUrl: 'core/page/single-form/add-course/add-course-page.template.html'
+            templateUrl: 'core/page/single-form/add-course/add-course-page.template.html',
+            data: {
+                displayName: 'Add Course'
+            }
         })
         .state('editCourse', {
             url: '/courses/:courseId',
-            templateUrl: 'core/page/single-form/edit-course/edit-course-page.template.html'
+            templateUrl: 'core/page/single-form/edit-course/edit-course-page.template.html',
+            data: {
+                displayName: 'Edit Course'
+            }
         })
         .state('login', {
             url: '/login',
@@ -31,20 +40,3 @@ angular.module('app', [
         });
     });
 });
-
-// .config(function($routeProvider) {
-//     $routeProvider
-//         .when('/login', {
-//             templateUrl: 'core/page/single-form/login/login-page.template.html'
-//         })
-//         .when('/courses/new', {
-//             templateUrl: 'core/page/single-form/add-course/add-course-page.template.html'
-//         })
-//         .when('/courses/:courseId', {
-//             templateUrl: 'core/page/single-form/edit-course/edit-course-page.template.html'
-//         })
-//         .when('/courses', {
-//             templateUrl: 'core/page/courses/courses-page.template.html'
-//         })
-//         .otherwise({ template: '<error404></error404>' });
-// });

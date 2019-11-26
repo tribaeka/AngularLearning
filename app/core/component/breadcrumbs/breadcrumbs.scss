@@ -1,4 +1,9 @@
 .breadcrumbs {
   font-size: 1.1rem;
   color: black;
+
+  .breadcrumb-item {
+    text-decoration: none;
+    color: black;
+  }
 }
