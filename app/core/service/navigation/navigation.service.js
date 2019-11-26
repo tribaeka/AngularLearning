@@ -2,9 +2,9 @@
 
 angular
     .module('navigation')
-    .service('navigationService', [ '$location', function($location) {
+    .service('navigationService', [ '$state', function($state) {
         function backToHome() {
-            $location.path('/courses');
+            $state.go('courses');
         }
 
         return {

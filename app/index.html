@@ -13,12 +13,14 @@
 <body ng-cloak>
   <div class="container">
     <app-header></app-header>
-    <ng-view class="view-container"></ng-view>
+    <breadcrumbs></breadcrumbs>
+    <ui-view class="view-container"></ui-view>
   </div>
   <app-footer></app-footer>
 
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular-route/angular-route.js"></script>
+  <script src="lib/@uirouter/angularjs/release/angular-ui-router.js"></script>
   <script src="lib/moment/moment.js"></script>
   <script src="lib/lodash/lodash.js"></script>
   <script src="app.js"></script>
@@ -40,6 +42,7 @@
   <script src="core/component/app-header/app-header.controller.js"></script>
   <script src="core/component/breadcrumbs/breadcrumbs.module.js"></script>
   <script src="core/component/breadcrumbs/breadcrumbs.component.js"></script>
+  <script src="core/component/breadcrumbs/breadcrumbs.controller.js"></script>
   <script src="core/component/course-control/course-control.module.js"></script>
   <script src="core/component/course-control/course-control.component.js"></script>
   <script src="core/component/course-control/course-control.controller.js"></script>

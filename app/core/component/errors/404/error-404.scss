@@ -1,10 +1,10 @@
+@import "../../../global-styles/mixins";
+
 .error-container {
-  background: #E6E9E8;
-  width: inherit;
-  height: 100%;
+  @include singlePageContainer(#E6E9E8);
 
   .error-image {
-    margin: 5rem 55rem;
+    margin: 5rem 0 5rem 55rem;
   }
 
   .error-description {

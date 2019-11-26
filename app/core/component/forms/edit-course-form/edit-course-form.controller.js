@@ -2,17 +2,17 @@
 
 angular
     .module('editCourseForm')
-    .controller('EditCourseFormController', [ 'courseService', 'navigationService', '$routeParams', function(
+    .controller('EditCourseFormController', [ 'courseService', 'navigationService', '$state', function(
         courseService,
         navigationService,
-        $routeParams
+        $state
     ) {
         var $ctrl = this;
 
         $ctrl.backToHome = navigationService.backToHome;
 
         $ctrl.$onChanges = function() {
-            $ctrl.toEditCourse = courseService.getCourseById($routeParams.courseId);
+            $ctrl.toEditCourse = courseService.getCourseById($state.params.courseId);
             $ctrl.courseDate = new Date($ctrl.toEditCourse.creationDate);
         };
 
