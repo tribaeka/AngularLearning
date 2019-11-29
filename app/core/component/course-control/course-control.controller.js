@@ -17,9 +17,9 @@ angular
         $ctrl.getLinkUrl = function() {
             if (authService.isAuthenticated()) {
                 return $state.href('addCourse');
-            } 
-            
+            }
+
             return $state.href('login');
-            
+
         };
     });
