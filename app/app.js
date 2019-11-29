@@ -34,9 +34,13 @@ angular.module('app', [
             template: '<error404></error404>'
         });
 
-    $urlRouterProvider.otherwise(function($injector) {
-        $injector.invoke(function($state) {
-            $state.transitionTo('404', {}, false);
+    $urlRouterProvider
+        .when('/', function($state) {
+            $state.go('courses');
+        })
+        .otherwise(function($injector) {
+            $injector.invoke(function($state) {
+                $state.transitionTo('404', {}, false);
+            });
         });
-    });
 });
