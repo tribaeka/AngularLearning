@@ -1,4 +1,4 @@
-<div class="breadcrumbs">
+<div class="breadcrumbs" ng-class="{'no-breadcrumbs-body': !$ctrl.showBreadcrumbs}">
     <ul class="nav-list">
         <li class="nav-item" ng-repeat="crumb in $ctrl.breadcrumbs">
             <a class="breadcrumb-item"

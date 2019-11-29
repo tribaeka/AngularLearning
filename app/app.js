@@ -13,14 +13,14 @@ angular.module('app', [
             }
         })
         .state('addCourse', {
-            url: '/courses/new',
+            url: '/new',
             templateUrl: 'core/page/single-form/add-course/add-course-page.template.html',
             data: {
                 displayName: 'Add Course'
             }
         })
         .state('editCourse', {
-            url: '/courses/:courseId',
+            url: '/:courseId',
             templateUrl: 'core/page/single-form/edit-course/edit-course-page.template.html',
             data: {
                 displayName: 'Edit Course'
