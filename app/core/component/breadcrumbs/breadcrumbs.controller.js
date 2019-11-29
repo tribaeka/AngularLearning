@@ -24,7 +24,6 @@ angular
             } else {
                 $ctrl.breadcrumbs.push($state.current);
             }
-            console.log($ctrl.breadcrumbs);
             noBreadCrumbPageClearCheck();
         });
 
