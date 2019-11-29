@@ -19,14 +19,16 @@
                                  alt="star">
                         </h3>
                         <h3>
-                            {{course.duration | durationFromMinutes}}&nbsp{{course.creationDate | date:'dd.MM.yyyy'}}
+                            {{course.duration | durationFromMinutes}}&nbsp
+                            {{course.creationDate | date:'dd.MM.yyyy'}}
                         </h3>
                     </div>
                     <p>{{course.description}}</p>
                 </div>
                 <div class="action-bar">
                     <a ui-sref="editCourse({courseId: {{course.id}}})"
-                       class="btn btn-edit action-btn">
+                       class="btn btn-edit action-btn"
+                       auth-guard-link>
                         <span>Edit</span>
                     </a>
                     <button type="button"
