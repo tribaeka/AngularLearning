@@ -26,9 +26,8 @@
                     <p>{{course.description}}</p>
                 </div>
                 <div class="action-bar">
-                    <a ui-sref="editCourse({courseId: {{course.id}}})"
-                       class="btn btn-edit action-btn"
-                       auth-guard-link>
+                    <a href="{{$ctrl.getLinkUrl(course.id)}}"
+                       class="btn btn-edit action-btn">
                         <span>Edit</span>
                     </a>
                     <button type="button"

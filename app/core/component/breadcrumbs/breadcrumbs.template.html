@@ -1,5 +1,6 @@
 <div class="breadcrumbs"
-     ng-class="{'no-breadcrumbs-body': !$ctrl.showBreadcrumbs}">
+     ng-class="{'no-breadcrumbs-on-login-page': !$ctrl.showBreadcrumbs && $ctrl.isLoginPage(),
+     'no-breadcrumbs-on-error-page': !$ctrl.showBreadcrumbs && $ctrl.isErrorPage()}">
     <ul class="nav-list">
         <li class="nav-item" ng-repeat="crumb in $ctrl.breadcrumbs">
             <a class="breadcrumb-item"

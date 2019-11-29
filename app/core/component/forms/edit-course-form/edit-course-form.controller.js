@@ -11,8 +11,6 @@ angular
         $ctrl.courseIsLoaded = !!$ctrl.toEditCourse;
 
         $ctrl.$onInit = function() {
-            console.log('EDIT COURSE CONTROLLER INIT!');
-            console.log($state);
             if (_.isEmpty(courseService.getCourses())) {
                 courseService.loadCourses()
                     .then(function() {

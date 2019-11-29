@@ -31,6 +31,13 @@ angular
             return !crumb.hasOwnProperty('data');
         };
 
+        $ctrl.isLoginPage = function() {
+            return $state.current.name === 'login';
+        };
+
+        $ctrl.isErrorPage = function() {
+            return $state.current.name.includes('error');
+        };
         function noBreadCrumbPageClearCheck() {
             if ($ctrl.isEmptyCrumb($state.current)) {
                 $ctrl.breadcrumbs = [];

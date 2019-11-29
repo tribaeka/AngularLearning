@@ -2,7 +2,13 @@
 
 angular
     .module('courseList')
-    .controller('CourseListController', function($rootScope, $scope, courseService, eventsFactory) {
+    .controller('CourseListController', function(
+        $rootScope,
+        courseService,
+        eventsFactory,
+        $state,
+        authService
+    ) {
         var $ctrl = this;
         $ctrl.coursesIsLoaded = !!$ctrl.courses;
 
@@ -43,5 +49,16 @@ angular
 
         $ctrl.creationDateToTime = function(course) {
             return -(new Date(course.creationDate).getTime());
+        };
+
+        $ctrl.getLinkUrl = function(id) {
+            if (authService.isAuthenticated()) {
+                console.log($state.href('editCourse', { courseId: id }));
+
+                return $state.href('editCourse', { courseId: id });
+            }
+
+            return $state.href('login');
+
         };
     });

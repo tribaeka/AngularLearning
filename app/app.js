@@ -30,7 +30,8 @@ angular.module('app', [
             url: '/login',
             templateUrl: 'core/page/single-form/login/login-page.template.html'
         })
-        .state('404', {
+        .state('error404', {
+            url: '/error/404',
             template: '<error404></error404>'
         });
 
@@ -40,7 +41,7 @@ angular.module('app', [
         })
         .otherwise(function($injector) {
             $injector.invoke(function($state) {
-                $state.transitionTo('404', {}, false);
+                $state.transitionTo('error404', {}, false);
             });
         });
 });

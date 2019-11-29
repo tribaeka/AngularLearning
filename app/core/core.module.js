@@ -3,7 +3,6 @@
 angular.module('core', [
     'course',
     'events',
-    'authGuard',
     'stateBy',
     'durationFromMinutes',
     'auth',
