@@ -1,0 +1,18 @@
+@import "../../../global-styles/mixins";
+@import "../../../global-styles/colors";
+
+.error-container {
+  @include singlePageContainer($grayColor);
+
+  .error-image {
+    margin: 5rem 0 5rem 55rem;
+  }
+
+  .error-description {
+    margin-left: 55rem;
+
+    .error-back-link {
+      margin-left: 7rem;
+    }
+  }
+}

@@ -1,4 +1,19 @@
+@import "../../global-styles/colors";
+
 .breadcrumbs {
   font-size: 1.1rem;
   color: black;
+
+  .breadcrumb-item {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.no-breadcrumbs-on-login-page {
+  background: $lightBlueColor;
+}
+
+.no-breadcrumbs-on-error-page {
+  background: $grayColor;
 }

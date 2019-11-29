@@ -24,3 +24,10 @@
   border: 0.2rem solid $grayLightColor;
   border-radius: 0.25rem;
 }
+
+@mixin singlePageContainer($backgroundColor) {
+  width: inherit;
+  height: 90%;
+  border-radius: 0.25rem;
+  background: $backgroundColor;
+}

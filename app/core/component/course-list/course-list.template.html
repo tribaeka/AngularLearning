@@ -19,14 +19,15 @@
                                  alt="star">
                         </h3>
                         <h3>
-                            {{course.duration | durationFromMinutes}}&nbsp{{course.creationDate | date:'dd.MM.yyyy'}}
+                            {{course.duration | durationFromMinutes}}&nbsp
+                            {{course.creationDate | date:'dd.MM.yyyy'}}
                         </h3>
                     </div>
                     <p>{{course.description}}</p>
                 </div>
                 <div class="action-bar">
-                    <a href="/index.html#!/editCourse/{{course.id}}"
-                            class="btn btn-edit action-btn">
+                    <a href="{{$ctrl.getLinkUrl(course.id)}}"
+                       class="btn btn-edit action-btn">
                         <span>Edit</span>
                     </a>
                     <button type="button"
