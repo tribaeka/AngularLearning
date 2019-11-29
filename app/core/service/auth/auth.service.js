@@ -8,10 +8,17 @@ angular
         var userKey = 'user';
 
         function loadUsersList() {
-            return $http
-                .get('data/users.json')
+            $http
+                .get('http://localhost:8088/user')
                 .then(function(usersData) {
                     users = usersData.data;
+                })
+                .catch(function() {
+                    $http
+                        .get('data/users.json')
+                        .then(function(usersData) {
+                            users = usersData.data;
+                        });
                 });
         }
 
@@ -21,7 +28,6 @@ angular
             var user = getUserByEmailAndPassword(email, password);
             if (!!user) {
                 setUser(user);
-                console.log('logged in successfully');
                 $location.path('/courses');
             }
         }

@@ -28,7 +28,6 @@ angular
         $ctrl.coursePullSize = 4;
 
         $ctrl.onLoadMoreClick = function() {
-            console.log('load more button');
             $ctrl.courses = courseService.getCourses();
             $ctrl.coursePullSize += 4;
         };
@@ -53,8 +52,6 @@ angular
 
         $ctrl.getLinkUrl = function(id) {
             if (authService.isAuthenticated()) {
-                console.log($state.href('editCourse', { courseId: id }));
-
                 return $state.href('editCourse', { courseId: id });
             }
 

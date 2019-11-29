@@ -5,7 +5,6 @@ angular
     .controller('CourseControlController', function($rootScope, $state, eventsFactory, authService) {
         var $ctrl = this;
         $ctrl.applyFilter = function() {
-            console.log('filter value = ' + $ctrl.inputFilterValue);
             $rootScope.$broadcast(eventsFactory.sendFiltersInputValueToCoursesFilterEvent, $ctrl.inputFilterValue);
             $ctrl.inputFilterValue = '';
         };

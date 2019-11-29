@@ -6,9 +6,16 @@ angular
         var courses = [];
         function loadCourses() {
             return $http
-                .get('data/courses.json')
+                .get('http://localhost:8088/course')
                 .then(function(coursesData) {
                     courses = coursesData.data;
+                })
+                .catch(function() {
+                    $http
+                        .get('data/courses.json')
+                        .then(function(coursesData) {
+                            courses = coursesData.data;
+                        });
                 });
         }
 
