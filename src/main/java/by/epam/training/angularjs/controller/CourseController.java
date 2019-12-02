@@ -40,6 +40,9 @@ public class CourseController {
 
     @GetMapping(params = "query")
     public List<Course> executeSearch(@RequestParam(name = "query") String query){
+        if (query.isEmpty()) {
+            return  courseRepo.findAll();
+        }
         List<Course> searchResults = null;
         try {
             searchResults = courseSearch.search(query);
