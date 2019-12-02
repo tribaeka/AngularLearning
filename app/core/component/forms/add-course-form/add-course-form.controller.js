@@ -9,7 +9,7 @@ angular
 
         $ctrl.addCourse = function() {
             var course = {
-                id: courseService.generateNewId(),
+                id: -1,
                 title: $ctrl.courseTitle,
                 description: $ctrl.courseDescription,
                 duration: $ctrl.courseDuration,

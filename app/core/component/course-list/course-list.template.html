@@ -4,7 +4,6 @@
         <li class="course-item"
             state-by-date="course"
             ng-repeat="course in $ctrl.courses |
-                limitTo: $ctrl.coursePullSize |
                 filter: $ctrl.filterValue |
                 orderBy: $ctrl.creationDateToTime">
             <div class="course-wrapper"

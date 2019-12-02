@@ -34,11 +34,7 @@ angular
         }
 
         function removeCourse(course) {
-            $http.delete('http://localhost:8085/course/'+course.id);
-        }
-
-        function generateNewId() {
-            return (_.parseInt(_.maxBy(courses, 'id').id) + 1).toString();
+            return $http.delete('http://localhost:8085/course/'+course.id);
         }
 
         return {
@@ -46,7 +42,6 @@ angular
             addCourse: addCourse,
             editCourse: updateCourse,
             deleteCourse: removeCourse,
-            generateNewId: generateNewId,
             getCourseById: getCourseById
         };
     } ]);

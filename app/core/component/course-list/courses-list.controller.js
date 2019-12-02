@@ -13,16 +13,19 @@ angular
         $ctrl.coursesIsLoaded = !!$ctrl.courses;
 
         $ctrl.$onInit = function() {
+            loadCourses();
+        };
+
+        function loadCourses() {
             courseService.getCourses()
                 .then(function(coursesData) {
                     $ctrl.courses = coursesData;
                     $ctrl.coursesIsLoaded = true;
                 });
-        };
-
-        $ctrl.coursePullSize = 4;
+        }
 
         $ctrl.onLoadMoreClick = function() {
+            //todo need repair
             $ctrl.courses = courseService.getCourses();
             $ctrl.coursePullSize += 4;
         };
@@ -33,7 +36,11 @@ angular
 
         $ctrl.deleteCourse = function(course) {
             if (confirm('Do you really want to delete this course?')) {
-                courseService.deleteCourse(course);
+                $ctrl.coursesIsLoaded = false;
+                courseService.deleteCourse(course)
+                    .then(function() {
+                        loadCourses();
+                    });
             }
         };
 
