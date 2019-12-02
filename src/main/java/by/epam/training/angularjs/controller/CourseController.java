@@ -5,6 +5,7 @@ import by.epam.training.angularjs.repo.CourseRepo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -31,14 +32,8 @@ public class CourseController {
         return course;
     }
 
-    @PostMapping
-    public Course create(@RequestBody String jsonCourse){
-        Course course = null;
-        try {
-            course = mapper.readValue(jsonCourse, Course.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Course create(@RequestBody Course  course){
         return courseRepo.save(course);
     }
 
