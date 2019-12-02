@@ -1,5 +1,7 @@
 package by.epam.training.angularjs.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +18,7 @@ import javax.persistence.*;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long id;
     private String title;
     private String description;
