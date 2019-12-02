@@ -6,7 +6,7 @@ angular
         var courses = [];
         function loadCourses() {
             return $http
-                .get('http://localhost:8088/course')
+                .get('http://localhost:8085/course')
                 .then(function(coursesData) {
                     courses = coursesData.data;
                 })
@@ -21,9 +21,14 @@ angular
 
         function addCourse(course) {
             courses.unshift(course);
+            console.log(JSON.stringify(course));
+            $http.post('http://localhost:8085/course', JSON.stringify(course), { headers: { 'Content-Type': 'application/json' } })
+                .then(function(response) {
+                    console.log(response);
+                });
         }
 
-        function getList() {
+        function getCourses() {
             return courses;
         }
 
@@ -49,7 +54,7 @@ angular
 
         return {
             loadCourses: loadCourses,
-            getCourses: getList,
+            getCourses: getCourses,
             addCourse: addCourse,
             editCourse: updateCourse,
             deleteCourse: removeCourse,

@@ -9,7 +9,7 @@ angular
 
         function loadUsersList() {
             $http
-                .get('http://localhost:8088/user')
+                .get('http://localhost:8085/user')
                 .then(function(usersData) {
                     users = usersData.data;
                 })
