@@ -47,7 +47,6 @@ public class CourseController {
         catch (Exception ex) {
             ex.printStackTrace();
         }
-        System.out.println(searchResults);
         return searchResults;
     }
 
