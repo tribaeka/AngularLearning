@@ -9,23 +9,15 @@ angular
                 .get('http://localhost:8085/course')
                 .then(function(coursesData) {
                     courses = coursesData.data;
-                })
-                .catch(function() {
-                    $http
-                        .get('data/courses.json')
-                        .then(function(coursesData) {
-                            courses = coursesData.data;
-                        });
                 });
         }
 
         function addCourse(course) {
             courses.unshift(course);
-            console.log(JSON.stringify(course));
-            $http.post('http://localhost:8085/course', JSON.stringify(course), { headers: { 'Content-Type': 'application/json' } })
-                .then(function(response) {
-                    console.log(response);
-                });
+            $http.post(
+                'http://localhost:8085/course', JSON.stringify(course), 
+                { headers: { 'Content-Type': 'application/json' } }
+            );
         }
 
         function getCourses() {
@@ -34,18 +26,26 @@ angular
 
         function getCourseById(id) {
             if (_.isNumber(id)) id = id.toString();
-            
-            return _.find(courses, { id: id });
+            $http.get('http://localhost:8085/course/'+ id)
+                .then(function(course) {
+                    console.log(course);
+                });
+            return _.find(courses, { id: id.toString() });
         }
 
         function updateCourse(course) {
             var index = _.findIndex(courses, { id: course.id });
             if (index !== -1) courses[index] = course;
+            $http.update('http://localhost:8085/course/'+course.id, JSON.stringify(course))
+                .then(function(response) {
+                    console.log(response);
+                });
         }
 
         function removeCourse(course) {
             var index = courses.indexOf(course);
             if (index !== -1) courses.splice(index, 1);
+            $http.delete('http://localhost:8085/course/'+course.id);
         }
 
         function generateNewId() {

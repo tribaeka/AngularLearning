@@ -31,6 +31,7 @@ angular
 
         function init() {
             $ctrl.toEditCourse = courseService.getCourseById($state.params.courseId);
+            console.log($ctrl.toEditCourse);
             $ctrl.courseDate = new Date($ctrl.toEditCourse.creationDate);
             $ctrl.coursesIsLoaded = true;
             $state.current.data.displayName = $ctrl.toEditCourse.title;

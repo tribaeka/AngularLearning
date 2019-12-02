@@ -12,13 +12,6 @@ angular
                 .get('http://localhost:8085/user')
                 .then(function(usersData) {
                     users = usersData.data;
-                })
-                .catch(function() {
-                    $http
-                        .get('data/users.json')
-                        .then(function(usersData) {
-                            users = usersData.data;
-                        });
                 });
         }
 
