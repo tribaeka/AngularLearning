@@ -26,6 +26,11 @@ public class CourseController {
         return courseRepo.findAll();
     }
 
+    @GetMapping("{id}")
+    public Course getOne(@PathVariable("id") Course course){
+        return course;
+    }
+
     @PostMapping
     public Course create(@RequestBody String jsonCourse){
         Course course = null;
