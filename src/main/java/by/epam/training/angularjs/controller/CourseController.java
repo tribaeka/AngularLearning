@@ -2,6 +2,7 @@ package by.epam.training.angularjs.controller;
 
 import by.epam.training.angularjs.domain.Course;
 import by.epam.training.angularjs.repo.CourseRepo;
+import by.epam.training.angularjs.search.CourseSearch;
 import by.epam.training.angularjs.service.CourseService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.BeanUtils;
@@ -19,10 +20,12 @@ public class CourseController {
     private ObjectMapper mapper = new ObjectMapper();
     private final CourseRepo courseRepo;
     private final CourseService courseService;
+    private final CourseSearch courseSearch;
     @Autowired
-    public CourseController(CourseRepo courseRepo, CourseService courseService) {
+    public CourseController(CourseRepo courseRepo, CourseService courseService, CourseSearch courseSearch) {
         this.courseRepo = courseRepo;
         this.courseService = courseService;
+        this.courseSearch = courseSearch;
     }
 
     @GetMapping
@@ -33,6 +36,19 @@ public class CourseController {
     @GetMapping(params = {"start", "count"})
     public List<Course> list(@RequestParam(name = "start") int start, @RequestParam(name = "count") int count){
         return courseService.getPageableCourses(start, count);
+    }
+
+    @GetMapping(params = "query")
+    public List<Course> executeSearch(@RequestParam(name = "query") String query){
+        List<Course> searchResults = null;
+        try {
+            searchResults = courseSearch.search(query);
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        System.out.println(searchResults);
+        return searchResults;
     }
 
     @GetMapping("{id}")

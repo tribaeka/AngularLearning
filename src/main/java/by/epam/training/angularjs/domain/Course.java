@@ -6,9 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 
 import javax.persistence.*;
 
+@Indexed
 @Entity
 @Table
 @Getter
@@ -20,7 +23,9 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long id;
+    @Field
     private String title;
+    @Field
     private String description;
     private String creationDate;
     private int duration;
