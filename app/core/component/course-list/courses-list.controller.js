@@ -11,13 +11,13 @@ angular
     ) {
         var $ctrl = this;
         $ctrl.coursesIsLoaded = !!$ctrl.courses;
-
+        $ctrl.coursePullSize = 4;
         $ctrl.$onInit = function() {
-            loadCourses();
+            loadCourses($ctrl.coursePullSize);
         };
 
-        function loadCourses() {
-            courseService.getCourses()
+        function loadCourses(size) {
+            courseService.getPageableCourses(size)
                 .then(function(coursesData) {
                     $ctrl.courses = coursesData;
                     $ctrl.coursesIsLoaded = true;
@@ -25,9 +25,8 @@ angular
         }
 
         $ctrl.onLoadMoreClick = function() {
-            //todo need repair
-            $ctrl.courses = courseService.getCourses();
             $ctrl.coursePullSize += 4;
+            loadCourses($ctrl.coursePullSize);
         };
 
         $rootScope.$on(eventsFactory.sendFiltersInputValueToCoursesFilterEvent, function(event, filterValue) {
@@ -39,7 +38,7 @@ angular
                 $ctrl.coursesIsLoaded = false;
                 courseService.deleteCourse(course)
                     .then(function() {
-                        loadCourses();
+                        loadCourses($ctrl.coursePullSize);
                     });
             }
         };

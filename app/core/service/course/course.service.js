@@ -3,6 +3,15 @@
 angular
     .module('course')
     .factory('courseService', [ '$http', function($http) {
+
+        function getPageableCourses(size) {
+            return $http
+                .get('http://localhost:8085/course?start=0&count=' + size)
+                .then(function(coursesData) {
+                    return coursesData.data;
+                });
+        }
+
         function getCourses() {
             return $http
                 .get('http://localhost:8085/course')
@@ -42,6 +51,7 @@ angular
             addCourse: addCourse,
             editCourse: updateCourse,
             deleteCourse: removeCourse,
-            getCourseById: getCourseById
+            getCourseById: getCourseById,
+            getPageableCourses: getPageableCourses
         };
     } ]);
