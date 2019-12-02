@@ -3,48 +3,37 @@
 angular
     .module('course')
     .factory('courseService', [ '$http', function($http) {
-        var courses = [];
-        function loadCourses() {
+        function getCourses() {
             return $http
                 .get('http://localhost:8085/course')
                 .then(function(coursesData) {
-                    courses = coursesData.data;
+                    return coursesData.data;
                 });
         }
 
         function addCourse(course) {
-            courses.unshift(course);
             $http.post(
                 'http://localhost:8085/course', JSON.stringify(course), 
                 { headers: { 'Content-Type': 'application/json' } }
             );
         }
 
-        function getCourses() {
-            return courses;
-        }
-
         function getCourseById(id) {
-            if (_.isNumber(id)) id = id.toString();
-            $http.get('http://localhost:8085/course/'+ id)
-                .then(function(course) {
-                    console.log(course);
+            return $http
+                .get('http://localhost:8085/course/'+ id)
+                .then(function(courseAsAnswer) {
+                    return courseAsAnswer.data;
                 });
-            return _.find(courses, { id: id.toString() });
         }
 
         function updateCourse(course) {
-            var index = _.findIndex(courses, { id: course.id });
-            if (index !== -1) courses[index] = course;
-            $http.update('http://localhost:8085/course/'+course.id, JSON.stringify(course))
+            $http.put('http://localhost:8085/course/'+course.id, JSON.stringify(course))
                 .then(function(response) {
                     console.log(response);
                 });
         }
 
         function removeCourse(course) {
-            var index = courses.indexOf(course);
-            if (index !== -1) courses.splice(index, 1);
             $http.delete('http://localhost:8085/course/'+course.id);
         }
 
@@ -53,7 +42,6 @@ angular
         }
 
         return {
-            loadCourses: loadCourses,
             getCourses: getCourses,
             addCourse: addCourse,
             editCourse: updateCourse,

@@ -13,16 +13,11 @@ angular
         $ctrl.coursesIsLoaded = !!$ctrl.courses;
 
         $ctrl.$onInit = function() {
-            if (_.isEmpty(courseService.getCourses())) {
-                courseService.loadCourses()
-                    .then(function() {
-                        $ctrl.courses = courseService.getCourses();
-                        $ctrl.coursesIsLoaded = true;
-                    });
-            } else {
-                $ctrl.courses = courseService.getCourses();
-                $ctrl.coursesIsLoaded = true;
-            }
+            courseService.getCourses()
+                .then(function(coursesData) {
+                    $ctrl.courses = coursesData;
+                    $ctrl.coursesIsLoaded = true;
+                });
         };
 
         $ctrl.coursePullSize = 4;

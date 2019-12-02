@@ -11,14 +11,13 @@ angular
         $ctrl.courseIsLoaded = !!$ctrl.toEditCourse;
 
         $ctrl.$onInit = function() {
-            if (_.isEmpty(courseService.getCourses())) {
-                courseService.loadCourses()
-                    .then(function() {
-                        init();
-                    });
-            } else {
-                init();
-            }
+            courseService.getCourseById($state.params.courseId)
+                .then(function(course) {
+                    $ctrl.toEditCourse = course;
+                    $ctrl.courseDate = new Date($ctrl.toEditCourse.creationDate);
+                    $ctrl.coursesIsLoaded = true;
+                    $state.current.data.displayName = $ctrl.toEditCourse.title;
+                });
         };
 
         $ctrl.backToHome = navigationService.backToHome;
@@ -28,12 +27,4 @@ angular
             courseService.editCourse($ctrl.toEditCourse);
             $ctrl.backToHome();
         };
-
-        function init() {
-            $ctrl.toEditCourse = courseService.getCourseById($state.params.courseId);
-            console.log($ctrl.toEditCourse);
-            $ctrl.courseDate = new Date($ctrl.toEditCourse.creationDate);
-            $ctrl.coursesIsLoaded = true;
-            $state.current.data.displayName = $ctrl.toEditCourse.title;
-        }
     } ]);

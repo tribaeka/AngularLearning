@@ -5,12 +5,6 @@ angular
     .controller('AddCourseFormController', [ 'courseService', 'navigationService', function(courseService, navigationService) {
         var $ctrl = this;
 
-        $ctrl.$onInit = function() {
-            if (_.isEmpty(courseService.getCourses())) {
-                courseService.loadCourses();
-            }
-        };
-
         $ctrl.backToHome = navigationService.backToHome;
 
         $ctrl.addCourse = function() {
