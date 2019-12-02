@@ -5,7 +5,6 @@ To start project do next steps:
     docker-compose up
 
 2) switch back and type in terminal next commands: 
-    gulp
     npm start
 
 3) go to http://localhost:8080/index.html#!/
