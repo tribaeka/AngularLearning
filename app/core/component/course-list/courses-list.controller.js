@@ -7,7 +7,8 @@ angular
         courseService,
         eventsFactory,
         $state,
-        authService
+        authService,
+        searchService
     ) {
         var $ctrl = this;
         $ctrl.coursesIsLoaded = !!$ctrl.courses;
@@ -30,7 +31,12 @@ angular
         };
 
         $rootScope.$on(eventsFactory.sendFiltersInputValueToCoursesFilterEvent, function(event, filterValue) {
-            $ctrl.filterValue = filterValue;
+            $ctrl.coursesIsLoaded = false;
+            searchService.executeCourseSearch(filterValue)
+                .then(function(searchResultsData) {
+                    $ctrl.courses = searchResultsData;
+                    $ctrl.coursesIsLoaded = true;
+                });
         });
 
         $ctrl.deleteCourse = function(course) {

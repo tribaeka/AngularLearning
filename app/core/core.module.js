@@ -7,6 +7,7 @@ angular.module('core', [
     'durationFromMinutes',
     'auth',
     'navigation',
+    'search',
     'appHeader',
     'breadcrumbs',
     'courseControl',
