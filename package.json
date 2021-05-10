@@ -11,7 +11,7 @@
     "angular-route": "^1.7.5",
     "eslint": "^6.6.0",
     "eslint-plugin-angular": "^4.0.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "moment": "^2.24.0",
     "sass": "^1.23.1"
   },
